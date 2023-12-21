@@ -1,0 +1,2959 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/21/2023 8:55:24 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KDVM3M2"
+  DTS:CreatorName="DESKTOP-KDVM3M2\Admin"
+  DTS:DTSID="{FBB1CC8C-2CAF-476C-B766-7BA099AAA258}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{29A42152-17D4-40B7-8A21-5907C66D19A5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+      DTS:ObjectName="DESKTOP-KDVM3M2.BI_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_METADATA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{EDAB26A8-B617-4776-A638-20A6A30153F8}DESKTOP-KDVM3M2.BI_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CCB01CDF-41CD-41CE-9564-D7288EF46A9B}"
+      DTS:ObjectName="DESKTOP-KDVM3M2.BI_SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_SOURCE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{CCB01CDF-41CD-41CE-9564-D7288EF46A9B}DESKTOP-KDVM3M2.BI_SOURCE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A23AB179-06BF-4823-B8FF-84E8B094B706}"
+      DTS:ObjectName="DESKTOP-KDVM3M2.BI_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A23AB179-06BF-4823-B8FF-84E8B094B706}DESKTOP-KDVM3M2.BI_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CCA55946-5AFD-4A05-BA50-BA53840ABEEB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="cet">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="lset">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get CET, LSET BRANCH (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{701d2739-7189-4fe3-8580-68a7f0a407e3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get CET, LSET BRANCH (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'Branch'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="cet"
+            SQLTask:DtsVariableName="User::cet" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="lset"
+            SQLTask:DtsVariableName="User::lset" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get CET, LSET PRODUCT (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4b8ca966-e2a3-4d71-8d7c-83c5402f5fb5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get CET, LSET PRODUCT (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'PRODUCT_LINE'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="cet"
+            SQLTask:DtsVariableName="User::cet" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="lset"
+            SQLTask:DtsVariableName="User::lset" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get CET, LSET PRODUCTLINE (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B8A23948-CE50-45B2-9C37-CF197CCBF71F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get CET, LSET PRODUCTLINE (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'PRODUCT_LINE'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="cet"
+            SQLTask:DtsVariableName="User::cet" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="lset"
+            SQLTask:DtsVariableName="User::lset" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get CET, LSET SUPERMARKET_SALES (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2bc62fe1-d967-401b-8e44-680db1c42752}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get CET, LSET SUPERMARKET_SALES (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'SUPERMARKET_SALES'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="cet"
+            SQLTask:DtsVariableName="User::cet" />
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="lset"
+            SQLTask:DtsVariableName="User::lset" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET PRODUCT (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{f094f986-c168-4c1a-970e-705efbfbc470}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET PRODUCT (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'BRANCH'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET PRODUCT(meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a950e1bf-645c-4310-963f-01700904300b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET PRODUCT(meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'PRODUCT'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET PRODUCT_LINE (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A21CA988-D800-4433-BAF1-FAEC28D72593}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET PRODUCT_LINE (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'PRODUCT_LINE'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set CET SUPERMARKET_SALES (meta data)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c6e3dc48-f173-4744-bb0c-b8da44539468}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set CET SUPERMARKET_SALES (meta data)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'SUPERMARKET_SALES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET equal CET (metadata)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1C3EB0DC-8B0C-4097-A920-CEF2958CA404}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET equal CET (metadata)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set lset = cet  where tablename = 'PRODUCT_LINE'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET equal CET (metadata) 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0a21ce92-c28b-4fec-bf20-994279a66c05}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET equal CET (metadata) 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set lset = cet  where tablename = 'PRODUCT'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET equal CET (metadata) 2"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{741a2305-9354-43d5-a453-103ab4be3624}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET equal CET (metadata) 2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set lset = cet  where tablename = 'BRANCH'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET equal CET (metadata) 3"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2710cfc1-a5b9-4c87-87ab-e7797685b11b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET equal CET (metadata) 3"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{EDAB26A8-B617-4776-A638-20A6A30153F8}"
+          SQLTask:SqlStatementSource="update Data_Flow set lset = cet  where tablename = 'SUPERMARKET_SALES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source2Stage_BRANCH"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7f18c2ab-85b4-4289-942c-af1d33b55d63}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source2Stage_BRANCH"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Source2Stage_BRANCH\Branch source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Branch source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Branch where (CreatedDate&gt;= ? and CreatedDate&lt; ? ) or (UpdateDate&gt;= ? and UpdateDate&lt;?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter1:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};"Parameter2:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter3:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_BRANCH\Branch source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[Branch]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      length="255"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[Branch]"
+                      name="Branch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="255"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      name="Branch" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source2Stage_BRANCH\Branch stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Branch stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[BRANCH]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_BRANCH\Branch stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[Branch]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output].Columns[City]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="255"
+                      name="City" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_BRANCH\Branch stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_BRANCH\Branch stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_BRANCH\Branch stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_BRANCH\Branch stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source2Stage_BRANCH.Paths[OLE DB Source Output]"
+              endId="Package\Source2Stage_BRANCH\Branch stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source2Stage_BRANCH\Branch source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source2Stage_PRODUCT"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{063f506f-8ba6-49cd-9f72-17f826126bce}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source2Stage_PRODUCT"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Source2Stage_PRODUCT\PRODUCT source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PRODUCT source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from PRODUCT where (CreatedDate&gt;= ? and CreatedDate&lt; ? ) or (UpdateDate&gt;= ? and UpdateDate&lt;?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter1:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};"Parameter2:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter3:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                      name="ProductLine"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLine" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="r8"
+                      name="UnitPrice" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                      name="ProductLine" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source2Stage_PRODUCT\PRODUCT stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PRODUCT stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PRODUCT]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].Columns[ProductLine]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductLine"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductLine]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="r8"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLine" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="r8"
+                      name="UnitPrice" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT\PRODUCT stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT\PRODUCT stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source2Stage_PRODUCT.Paths[OLE DB Source Output]"
+              endId="Package\Source2Stage_PRODUCT\PRODUCT stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source2Stage_PRODUCT\PRODUCT source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source2Stage_PRODUCT_LINE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6C00D4A1-432D-407E-AC40-D983E88B0EA2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source2Stage_PRODUCT_LINE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PRODUCT_LINE source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from PRODUCT_LINE where (CreatedDate&gt;= ? and CreatedDate&lt; ? ) or (UpdateDate&gt;= ? and UpdateDate&lt;?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter1:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};"Parameter2:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter3:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLineID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[ProductLineID]"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLineID]"
+                      name="ProductLineID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLine]"
+                      name="ProductLine"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[ProductLineID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLineID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLine" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ProductLineID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ProductLineID]"
+                      name="ProductLineID" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ProductLine]"
+                      name="ProductLine" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PRODUCT_LINE stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PRODUCT_LINE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].Columns[ProductLineID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductLineID"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLineID]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLineID]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].Columns[ProductLine]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductLine"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[ProductLine]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLineID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLineID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductLine" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source2Stage_PRODUCT_LINE.Paths[OLE DB Source Output]"
+              endId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Source2Stage_SUPERMARKET_SALES"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0e455319-cfad-4244-8ebd-cf3b2a599ea3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Source2Stage_SUPERMARKET_SALES"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SUPERMARKET_SALES source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from SUPERMARKET_SALES where (CreatedDate&gt;= ? and CreatedDate&lt; ? ) or (UpdateDate&gt;= ? and UpdateDate&lt;?)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter1:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};"Parameter2:Input",{FEC6F37A-ED22-47B7-BCCC-886AC35F0ACB};"Parameter3:Input",{CCA55946-5AFD-4A05-BA50-BA53840ABEEB};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      name="InvoiceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Branch]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Branch]"
+                      name="Branch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      name="CustomerType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Tax5Percent]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Tax5Percent]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Tax5Percent]"
+                      name="Tax5Percent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Time]"
+                      name="Time"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Payment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Payment]"
+                      name="Payment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Cogs]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Cogs]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Cogs]"
+                      name="Cogs"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[GrossMarginPercentage]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]"
+                      name="GrossMarginPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossIncome]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[GrossIncome]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossIncome]"
+                      name="GrossIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Rating]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Rating]"
+                      name="Rating"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Tax5Percent]"
+                      dataType="r8"
+                      name="Tax5Percent" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      dataType="dbTime2"
+                      name="Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      name="Payment" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Cogs]"
+                      dataType="r8"
+                      name="Cogs" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[GrossMarginPercentage]"
+                      dataType="r8"
+                      name="GrossMarginPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[GrossIncome]"
+                      dataType="r8"
+                      name="GrossIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      dataType="r8"
+                      name="Rating" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      name="InvoiceID" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      name="Branch" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      name="CustomerType" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Tax5Percent]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Tax5Percent]"
+                      name="Tax5Percent" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      name="Time"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                      name="Payment" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Cogs]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Cogs]"
+                      name="Cogs" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[GrossMarginPercentage]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[GrossMarginPercentage]"
+                      name="GrossMarginPercentage" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[GrossIncome]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[GrossIncome]"
+                      name="GrossIncome" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      dataType="r8"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      name="Rating" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SUPERMARKET_SALES stage"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SUPERMARKET_SALES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[InvoiceID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="InvoiceID"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Branch]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[CustomerType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CustomerType"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[CustomerType]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Tax5Percent]"
+                      cachedDataType="r8"
+                      cachedName="Tax5Percent"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbDate"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Time]"
+                      cachedDataType="dbTime2"
+                      cachedName="Time"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Time]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Payment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Payment"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Payment]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Cogs]"
+                      cachedDataType="r8"
+                      cachedName="Cogs"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Cogs]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[GrossIncome]"
+                      cachedDataType="r8"
+                      cachedName="GrossIncome"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[GrossMarginPercentage]"
+                      cachedDataType="r8"
+                      cachedName="GrossMarginPercentage"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
+                    <inputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].Columns[Rating]"
+                      cachedDataType="r8"
+                      cachedName="Rating"
+                      externalMetadataColumnId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output].Columns[Rating]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                      dataType="r8"
+                      name="Tax5Percent" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
+                      dataType="dbTime2"
+                      name="Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      name="Payment" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                      dataType="r8"
+                      name="Cogs" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                      dataType="r8"
+                      name="GrossMarginPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                      dataType="r8"
+                      name="GrossIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      dataType="r8"
+                      name="Rating" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Source2Stage_SUPERMARKET_SALES.Paths[OLE DB Source Output]"
+              endId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5D528C2-86A8-4CA3-8249-318F0345FEBD}"
+      DTS:From="Package\Set CET PRODUCT_LINE (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get CET, LSET PRODUCTLINE (meta data)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{27EA08BF-D22D-42B0-B765-4D70758498C9}"
+      DTS:From="Package\Get CET, LSET PRODUCTLINE (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Source2Stage_PRODUCT_LINE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{978ae2d1-8e8d-4a86-874c-5345680aa767}"
+      DTS:From="Package\Get CET, LSET PRODUCT (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\Source2Stage_PRODUCT" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{005baa59-aa55-4e09-9df3-8f30a4427cd8}"
+      DTS:From="Package\Get CET, LSET BRANCH (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 2"
+      DTS:To="Package\Source2Stage_BRANCH" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{dac7d182-3532-4060-8bcf-aaf2bfff8460}"
+      DTS:From="Package\Get CET, LSET SUPERMARKET_SALES (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 3"
+      DTS:To="Package\Source2Stage_SUPERMARKET_SALES" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{4F1DD5EA-1B93-431E-A11B-5F477281346D}"
+      DTS:From="Package\Source2Stage_PRODUCT_LINE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Set LSET equal CET (metadata)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{cdd4294e-f59f-442e-93f2-89a9da8b534d}"
+      DTS:From="Package\Source2Stage_PRODUCT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 1"
+      DTS:To="Package\Set LSET equal CET (metadata) 1" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{aca0b233-a627-49ce-aceb-113476b2c87a}"
+      DTS:From="Package\Source2Stage_BRANCH"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 2"
+      DTS:To="Package\Set LSET equal CET (metadata) 2" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{e603374c-857d-4a2c-9235-f7a2bc50a180}"
+      DTS:From="Package\Source2Stage_SUPERMARKET_SALES"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2 3"
+      DTS:To="Package\Set LSET equal CET (metadata) 3" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{0fabe7df-b3b6-47cb-9f2a-a188ac16ecd9}"
+      DTS:From="Package\Set CET PRODUCT(meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Get CET, LSET PRODUCT (meta data)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{b2991c77-490a-47f2-8c3b-bd27c9aeb604}"
+      DTS:From="Package\Set CET PRODUCT (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Get CET, LSET BRANCH (meta data)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{7f2a0a37-7ed4-48bc-8a37-db95cd5cb375}"
+      DTS:From="Package\Set CET SUPERMARKET_SALES (meta data)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Get CET, LSET SUPERMARKET_SALES (meta data)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224.8,41.6"
+          Id="Package\Set CET PRODUCT (meta data)"
+          TopLeft="807.800001053725,86.4117646301391" />
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\Get CET, LSET BRANCH (meta data)"
+          TopLeft="807.085715337919,162.882352798404" />
+        <NodeLayout
+          Size="188.8,41.6"
+          Id="Package\Source2Stage_BRANCH"
+          TopLeft="813.514286780175,247.764705665177" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Set LSET equal CET (metadata) 2"
+          TopLeft="807.800001053725,357.117646745796" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="920.200001053725,128.011764630139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.6857142841938,34.8705881682647"
+              Start="0,0"
+              End="11.6857142841938,27.3705881682647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4352940841324" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4352940841324"
+                    Point2="0,17.4352940841324"
+                    Point3="4,17.4352940841324" />
+                  <mssgle:LineSegment
+                    End="7.68571428419375,17.4352940841324" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.68571428419375,17.4352940841324"
+                    Point2="11.6857142841938,17.4352940841324"
+                    Point3="11.6857142841938,21.4352940841324" />
+                  <mssgle:LineSegment
+                    End="11.6857142841938,27.3705881682647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 2]"
+          TopLeft="931.885715337919,204.482352798404">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.9714285577437,43.2823528667733"
+              Start="0,0"
+              End="-23.9714285577437,35.7823528667733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6411764333866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6411764333866"
+                    Point2="0,21.6411764333866"
+                    Point3="-4,21.6411764333866" />
+                  <mssgle:LineSegment
+                    End="-19.9714285577437,21.6411764333866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.9714285577437,21.6411764333866"
+                    Point2="-23.9714285577437,21.6411764333866"
+                    Point3="-23.9714285577437,25.6411764333866" />
+                  <mssgle:LineSegment
+                    End="-23.9714285577437,35.7823528667733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 2]"
+          TopLeft="907.914286780175,289.364705665177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.4857142735499,67.752941080619"
+              Start="0,0"
+              End="13.4857142735499,60.252941080619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8764705403095"
+                    Point2="0,33.8764705403095"
+                    Point3="4,33.8764705403095" />
+                  <mssgle:LineSegment
+                    End="9.48571427354989,33.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.48571427354989,33.8764705403095"
+                    Point2="13.4857142735499,33.8764705403095"
+                    Point3="13.4857142735499,37.8764705403095" />
+                  <mssgle:LineSegment
+                    End="13.4857142735499,60.252941080619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="316,41.6"
+          Id="Package\Get CET, LSET SUPERMARKET_SALES (meta data)"
+          TopLeft="1069.88571523148,166.705882206817" />
+        <NodeLayout
+          Size="255.2,41.6"
+          Id="Package\Source2Stage_SUPERMARKET_SALES"
+          TopLeft="1127.02857249598,247.764705665177" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Set LSET equal CET (metadata) 3"
+          TopLeft="1121.31428676953,357.117646745796" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 3]"
+          TopLeft="1227.88571523148,208.305882206817">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.742857264499,39.4588234583601"
+              Start="0,0"
+              End="26.742857264499,31.9588234583601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.72941172918" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.72941172918"
+                    Point2="0,19.72941172918"
+                    Point3="4,19.72941172918" />
+                  <mssgle:LineSegment
+                    End="22.742857264499,19.72941172918" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.742857264499,19.72941172918"
+                    Point2="26.742857264499,19.72941172918"
+                    Point3="26.742857264499,23.72941172918" />
+                  <mssgle:LineSegment
+                    End="26.742857264499,31.9588234583601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 3]"
+          TopLeft="1254.62857249598,289.364705665177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.7142857264503,67.752941080619"
+              Start="0,0"
+              End="-19.7142857264503,60.252941080619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8764705403095"
+                    Point2="0,33.8764705403095"
+                    Point3="-4,33.8764705403095" />
+                  <mssgle:LineSegment
+                    End="-15.7142857264503,33.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.7142857264503,33.8764705403095"
+                    Point2="-19.7142857264503,33.8764705403095"
+                    Point3="-19.7142857264503,37.8764705403095" />
+                  <mssgle:LineSegment
+                    End="-19.7142857264503,60.252941080619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="284.8,41.6"
+          Id="Package\Set CET SUPERMARKET_SALES (meta data)"
+          TopLeft="1077.02857238954,86.4117646301391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1219.42857238954,128.011764630139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.45714284193787,38.6941175766779"
+              Start="0,0"
+              End="8.45714284193787,31.1941175766779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3470587883389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3470587883389"
+                    Point2="0,19.3470587883389"
+                    Point3="4,19.3470587883389" />
+                  <mssgle:LineSegment
+                    End="4.45714284193787,19.3470587883389" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.45714284193787,19.3470587883389"
+                    Point2="8.45714284193787,19.3470587883389"
+                    Point3="8.45714284193787,23.3470587883389" />
+                  <mssgle:LineSegment
+                    End="8.45714284193787,31.1941175766779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="621.571429622113,204.482352798404">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-23.5714285577436,43.2823528667733"
+              Start="0,0"
+              End="-23.5714285577436,35.7823528667733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6411764333866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6411764333866"
+                    Point2="0,21.6411764333866"
+                    Point3="-4,21.6411764333866" />
+                  <mssgle:LineSegment
+                    End="-19.5714285577436,21.6411764333866" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.5714285577436,21.6411764333866"
+                    Point2="-23.5714285577436,21.6411764333866"
+                    Point3="-23.5714285577436,25.6411764333866" />
+                  <mssgle:LineSegment
+                    End="-23.5714285577436,35.7823528667733" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2 1]"
+          TopLeft="598.000001064369,289.364705665177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.2857142735498,67.752941080619"
+              Start="0,0"
+              End="14.2857142735498,60.252941080619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.8764705403095"
+                    Point2="0,33.8764705403095"
+                    Point3="4,33.8764705403095" />
+                  <mssgle:LineSegment
+                    End="10.2857142735498,33.8764705403095" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.2857142735498,33.8764705403095"
+                    Point2="14.2857142735498,33.8764705403095"
+                    Point3="14.2857142735498,37.8764705403095" />
+                  <mssgle:LineSegment
+                    End="14.2857142735498,60.252941080619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="605.085715337919,128.011764630139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.4857142841936,34.8705881682647"
+              Start="0,0"
+              End="16.4857142841936,27.3705881682647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4352940841323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4352940841323"
+                    Point2="0,17.4352940841323"
+                    Point3="4,17.4352940841323" />
+                  <mssgle:LineSegment
+                    End="12.4857142841936,17.4352940841323" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.4857142841936,17.4352940841323"
+                    Point2="16.4857142841936,17.4352940841323"
+                    Point3="16.4857142841936,21.4352940841323" />
+                  <mssgle:LineSegment
+                    End="16.4857142841936,27.3705881682647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="236,41.6"
+          Id="Package\Set LSET equal CET (metadata) 1"
+          TopLeft="494.285715337919,357.117646745796" />
+        <NodeLayout
+          Size="196,41.6"
+          Id="Package\Source2Stage_PRODUCT"
+          TopLeft="500.000001064369,247.764705665177" />
+        <NodeLayout
+          Size="256,41.6"
+          Id="Package\Get CET, LSET PRODUCT (meta data)"
+          TopLeft="493.571429622113,162.882352798404" />
+        <NodeLayout
+          Size="221.6,41.6"
+          Id="Package\Set CET PRODUCT(meta data)"
+          TopLeft="494.285715337919,86.4117646301391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="296.371428962204,293.364705665177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.7529410806185"
+              Start="0,0"
+              End="0,56.2529410806185">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.2529410806185" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="319.200000383173,204.482352798404">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.7714285577437,43.2823528667737"
+              Start="0,0"
+              End="-20.7714285577437,35.7823528667737">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6411764333868" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6411764333868"
+                    Point2="0,21.6411764333868"
+                    Point3="-4,21.6411764333868" />
+                  <mssgle:LineSegment
+                    End="-16.7714285577437,21.6411764333868" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.7714285577437,21.6411764333868"
+                    Point2="-20.7714285577437,21.6411764333868"
+                    Point3="-20.7714285577437,25.6411764333868" />
+                  <mssgle:LineSegment
+                    End="-20.7714285577437,35.7823528667737" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="307.114286098979,128.011764630139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.0857142841938,34.8705881682647"
+              Start="0,0"
+              End="12.0857142841938,27.3705881682647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4352940841324" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4352940841324"
+                    Point2="0,17.4352940841324"
+                    Point3="4,17.4352940841324" />
+                  <mssgle:LineSegment
+                    End="8.08571428419378,17.4352940841324" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.08571428419378,17.4352940841324"
+                    Point2="12.0857142841938,17.4352940841324"
+                    Point3="12.0857142841938,21.4352940841324" />
+                  <mssgle:LineSegment
+                    End="12.0857142841938,27.3705881682647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\Set LSET equal CET (metadata)"
+          TopLeft="180.714286098979,357.117646745796" />
+        <NodeLayout
+          Size="224,45.6"
+          Id="Package\Source2Stage_PRODUCT_LINE"
+          TopLeft="186.428571825429,247.764705665177" />
+        <NodeLayout
+          Size="278.4,41.6"
+          Id="Package\Get CET, LSET PRODUCTLINE (meta data)"
+          TopLeft="180.000000383173,162.882352798404" />
+        <NodeLayout
+          Size="252.8,41.6"
+          Id="Package\Set CET PRODUCT_LINE (meta data)"
+          TopLeft="180.714286098979,86.4117646301391" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Source2Stage_PRODUCT_LINE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source"
+          TopLeft="165.000000351242,129.99999988605" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage"
+          TopLeft="253.571429111216,321.941176188394" />
+        <EdgeLayout
+          Id="Package\Source2Stage_PRODUCT_LINE.Paths[OLE DB Source Output]"
+          TopLeft="259.000000351242,171.59999988605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.771428759974,150.341176302344"
+              Start="0,0"
+              End="85.771428759974,142.841176302344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.1705881511722" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.1705881511722"
+                    Point2="0,75.1705881511722"
+                    Point3="4,75.1705881511722" />
+                  <mssgle:LineSegment
+                    End="81.771428759974,75.1705881511722" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.771428759974,75.1705881511722"
+                    Point2="85.771428759974,75.1705881511722"
+                    Point3="85.771428759974,79.1705881511722" />
+                  <mssgle:LineSegment
+                    End="85.771428759974,142.841176302344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_PRODUCT_LINE\PRODUCT_LINE stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Source2Stage_PRODUCT">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\Source2Stage_PRODUCT\PRODUCT stage"
+          TopLeft="253.571429111216,321.941176188394" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Source2Stage_PRODUCT\PRODUCT source"
+          TopLeft="165.000000351242,129.99999988605" />
+        <EdgeLayout
+          Id="Package\Source2Stage_PRODUCT.Paths[OLE DB Source Output]"
+          TopLeft="244.600000351242,171.59999988605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.171428759974,150.341176302344"
+              Start="0,0"
+              End="86.171428759974,142.841176302344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.170588151172"
+                    Point2="0,75.170588151172"
+                    Point3="4,75.170588151172" />
+                  <mssgle:LineSegment
+                    End="82.171428759974,75.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.171428759974,75.170588151172"
+                    Point2="86.171428759974,75.170588151172"
+                    Point3="86.171428759974,79.170588151172" />
+                  <mssgle:LineSegment
+                    End="86.171428759974,142.841176302344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_PRODUCT\PRODUCT stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_PRODUCT\PRODUCT source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Source2Stage_BRANCH">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Source2Stage_BRANCH\Branch stage"
+          TopLeft="253.571429111216,321.941176188394" />
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Source2Stage_BRANCH\Branch source"
+          TopLeft="165.000000351242,129.99999988605" />
+        <EdgeLayout
+          Id="Package\Source2Stage_BRANCH.Paths[OLE DB Source Output]"
+          TopLeft="237.400000351242,171.59999988605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.171428759974,150.341176302344"
+              Start="0,0"
+              End="86.171428759974,142.841176302344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.170588151172"
+                    Point2="0,75.170588151172"
+                    Point3="4,75.170588151172" />
+                  <mssgle:LineSegment
+                    End="82.171428759974,75.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.171428759974,75.170588151172"
+                    Point2="86.171428759974,75.170588151172"
+                    Point3="86.171428759974,79.170588151172" />
+                  <mssgle:LineSegment
+                    End="86.171428759974,142.841176302344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_BRANCH\Branch stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_BRANCH\Branch source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Source2Stage_SUPERMARKET_SALES">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage"
+          TopLeft="253.571429111216,321.941176188394" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source"
+          TopLeft="165.000000351242,129.99999988605" />
+        <EdgeLayout
+          Id="Package\Source2Stage_SUPERMARKET_SALES.Paths[OLE DB Source Output]"
+          TopLeft="274.600000351242,171.59999988605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.771428759974,150.341176302344"
+              Start="0,0"
+              End="85.771428759974,142.841176302344">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.170588151172"
+                    Point2="0,75.170588151172"
+                    Point3="4,75.170588151172" />
+                  <mssgle:LineSegment
+                    End="81.771428759974,75.170588151172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.771428759974,75.170588151172"
+                    Point2="85.771428759974,75.170588151172"
+                    Point3="85.771428759974,79.170588151172" />
+                  <mssgle:LineSegment
+                    End="85.771428759974,142.841176302344" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source2Stage_SUPERMARKET_SALES\SUPERMARKET_SALES source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

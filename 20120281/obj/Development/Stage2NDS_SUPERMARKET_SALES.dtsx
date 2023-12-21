@@ -1,0 +1,1618 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/21/2023 7:45:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KDVM3M2"
+  DTS:CreatorName="DESKTOP-KDVM3M2\Admin"
+  DTS:DTSID="{59B24C15-16C4-47B9-B3C6-D9012ADC4AEB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{E1993057-201E-4B0B-804C-7A3ED7638AE0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}"
+      DTS:ObjectName="DESKTOP-KDVM3M2.BI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}DESKTOP-KDVM3M2.BI_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B7188499-58B1-4847-AD66-DC59FCA20AA6}"
+      DTS:ObjectName="DESKTOP-KDVM3M2.BI_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B7188499-58B1-4847-AD66-DC59FCA20AA6}DESKTOP-KDVM3M2.BI_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{cfc54c3f-5354-48a3-aa4b-5dd15cc7c133}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Add SourceID"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Add SourceID"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">4</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">4</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]"
+                      name="DateID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Load data supermarket_sales in stage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Load data supermarket_sales in stage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT* FROM SUPERMARKET_SALES</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Load data supermarket_sales in stage.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]"
+                      name="InvoiceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Branch]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Branch]"
+                      name="Branch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CustomerType]"
+                      name="CustomerType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Tax5Percent]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Tax5Percent]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Tax5Percent]"
+                      name="Tax5Percent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Total]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Total]"
+                      name="Total"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Time]"
+                      dataType="dbTime2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Time]"
+                      name="Time"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Payment]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Payment]"
+                      name="Payment"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Cogs]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Cogs]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Cogs]"
+                      name="Cogs"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[GrossMarginPercentage]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]"
+                      name="GrossMarginPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossIncome]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[GrossIncome]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossIncome]"
+                      name="GrossIncome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Rating]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Rating]"
+                      name="Rating"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Tax5Percent]"
+                      dataType="r8"
+                      name="Tax5Percent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                      dataType="dbTime2"
+                      name="Time"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      name="Payment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Cogs]"
+                      dataType="r8"
+                      name="Cogs" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[GrossMarginPercentage]"
+                      dataType="r8"
+                      name="GrossMarginPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[GrossIncome]"
+                      dataType="r8"
+                      name="GrossIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].ExternalColumns[Rating]"
+                      dataType="r8"
+                      name="Rating" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[InvoiceID]"
+                      name="InvoiceID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Branch]"
+                      name="Branch" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[CustomerType]"
+                      name="CustomerType" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Tax5Percent]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Tax5Percent]"
+                      name="Tax5Percent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Total]"
+                      name="Total" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      dataType="dbTime2"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Time]"
+                      name="Time"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Payment]"
+                      name="Payment" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Cogs]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Cogs]"
+                      name="Cogs" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[GrossMarginPercentage]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[GrossMarginPercentage]"
+                      name="GrossMarginPercentage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[GrossIncome]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[GrossIncome]"
+                      name="GrossIncome" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[Rating]"
+                      name="Rating" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select InvoiceID from SUPERMARKET_SALES where SourceID=4</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select InvoiceID from SUPERMARKET_SALES where SourceID=4) [refTable]
+where [refTable].[InvoiceID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="InvoiceID" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup.Inputs[Lookup Input].Columns[InvoiceID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="InvoiceID"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">InvoiceID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SUPERMARKET_SALES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="InvoiceID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CustomerType"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CustomerType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tax5Percent]"
+                      cachedDataType="r8"
+                      cachedName="Tax5Percent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Payment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Payment"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Payment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cogs]"
+                      cachedDataType="r8"
+                      cachedName="Cogs"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Cogs]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GrossMarginPercentage]"
+                      cachedDataType="r8"
+                      cachedName="GrossMarginPercentage"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GrossIncome]"
+                      cachedDataType="r8"
+                      cachedName="GrossIncome"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Rating]"
+                      cachedDataType="r8"
+                      cachedName="Rating"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Rating]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateID]"
+                      cachedDataType="i4"
+                      cachedName="DateID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                      dataType="wstr"
+                      length="255"
+                      name="InvoiceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                      dataType="wstr"
+                      length="255"
+                      name="CustomerType" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="255"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                      dataType="r8"
+                      name="Tax5Percent" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                      dataType="r8"
+                      name="Total" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                      dataType="wstr"
+                      length="255"
+                      name="Payment" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                      dataType="r8"
+                      name="Cogs" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                      dataType="r8"
+                      name="GrossMarginPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                      dataType="r8"
+                      name="GrossIncome" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                      dataType="r8"
+                      name="Rating" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
+                      dataType="i4"
+                      name="DateID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Update Data"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Data"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update SUPERMARKET_SALES set UpdateDate=? , CustomerType=? , Gender=? , Quantity=? , Tax5Percent=? , Total=? , Payment=? , Cogs=? , GrossMarginPercentage=? , GrossIncome=? , Rating=?, ProductID=?, DateID=?  where InvoiceID=? and SourceID=?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Update Data.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[CustomerType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CustomerType"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CustomerType]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Gender"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Tax5Percent]"
+                      cachedDataType="r8"
+                      cachedName="Tax5Percent"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Total]"
+                      cachedDataType="r8"
+                      cachedName="Total"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Total]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Payment]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Payment"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Payment]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Cogs]"
+                      cachedDataType="r8"
+                      cachedName="Cogs"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Cogs]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[GrossMarginPercentage]"
+                      cachedDataType="r8"
+                      cachedName="GrossMarginPercentage"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[GrossIncome]"
+                      cachedDataType="r8"
+                      cachedName="GrossIncome"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Rating]"
+                      cachedDataType="r8"
+                      cachedName="Rating"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Rating]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[ProductID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[InvoiceID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="InvoiceID"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[DateID]"
+                      cachedDataType="i4"
+                      cachedName="DateID"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="r8"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="r8"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="r8"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="r8"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="r8"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="r8"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="i4"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="wstr"
+                      length="255"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="i4"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Update Data.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Derived Column Output]"
+              endId="Package\Data Flow Task\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Error Output]"
+              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Error Output"
+              startId="Package\Data Flow Task\Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="203.571428877054,160.941176382109" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="256.8,41.6"
+          Id="Package\Data Flow Task\Load data supermarket_sales in stage"
+          TopLeft="273.57142915379,64.999999943025" />
+        <NodeLayout
+          Size="137.6,41.6"
+          Id="Package\Data Flow Task\Update Data"
+          TopLeft="141.428571729636,347.176470283921" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Data Flow Task\Add SourceID"
+          TopLeft="300.714286354428,150.647058691482" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="401.97142915379,106.599999943025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.6571427993621,44.0470587484568"
+              Start="0,0"
+              End="-29.6571427993621,36.5470587484568">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.0235293742284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.0235293742284"
+                    Point2="0,22.0235293742284"
+                    Point3="-4,22.0235293742284" />
+                  <mssgle:LineSegment
+                    End="-25.6571427993621,22.0235293742284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.6571427993621,22.0235293742284"
+                    Point2="-29.6571427993621,22.0235293742284"
+                    Point3="-29.6571427993621,26.0235293742284" />
+                  <mssgle:LineSegment
+                    End="-29.6571427993621,36.5470587484568" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\Data Flow Task\Lookup"
+          TopLeft="402.85714371472,228.647058623111" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="372.314286354428,192.247058691482">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.9428573602921,36.3999999316296"
+              Start="0,0"
+              End="86.9428573602921,28.8999999316296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1999999658148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1999999658148"
+                    Point2="0,18.1999999658148"
+                    Point3="4,18.1999999658148" />
+                  <mssgle:LineSegment
+                    End="82.9428573602921,18.1999999658148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.9428573602921,18.1999999658148"
+                    Point2="86.9428573602921,18.1999999658148"
+                    Point3="86.9428573602921,22.1999999658148" />
+                  <mssgle:LineSegment
+                    End="86.9428573602921,28.8999999316296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="459.25714371472,270.247058623111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-249.028571985084,76.9294116608095"
+              Start="0,0"
+              End="-249.028571985084,69.4294116608095">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4647058304048" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.4647058304048"
+                    Point2="0,38.4647058304048"
+                    Point3="-4,38.4647058304048" />
+                  <mssgle:LineSegment
+                    End="-245.028571985084,38.4647058304048" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-245.028571985084,38.4647058304048"
+                    Point2="-249.028571985084,38.4647058304048"
+                    Point3="-249.028571985084,42.4647058304048" />
+                  <mssgle:LineSegment
+                    End="-249.028571985084,69.4294116608095" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-172.705672711292,43.4647058304048,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="617.142858456592,316.588235016616" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Error Output]"
+          TopLeft="476.723810381387,270.247058623111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="225.619048075206,46.3411763935044"
+              Start="0,0"
+              End="225.619048075206,38.8411763935044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9253475621025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9253475621025"
+                    Point2="0,18.9253475621025"
+                    Point3="4,18.9253475621025" />
+                  <mssgle:LineSegment
+                    End="221.619048075206,18.9253475621025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="221.619048075206,18.9253475621025"
+                    Point2="225.619048075206,18.9253475621025"
+                    Point3="225.619048075206,22.9253475621025" />
+                  <mssgle:LineSegment
+                    End="225.619048075206,38.8411763935044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.9431373188529,23.9253475621025,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Load data supermarket_sales in stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
