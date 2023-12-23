@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{FC304161-EDF2-4A08-9DB6-E71C487458CD}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{331D3C00-AA02-4252-B23C-C9EE17FEA089}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -908,6 +908,13 @@ where [refTable].[InvoiceID] = ?</property>
                       cachedName="DateID"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -984,6 +991,11 @@ where [refTable].[InvoiceID] = ?</property>
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
                       dataType="dbTimeStamp"
                       name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      dataType="wstr"
+                      length="255"
+                      name="Branch" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1030,7 +1042,7 @@ where [refTable].[InvoiceID] = ?</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update SUPERMARKET_SALES set UpdateDate=? , CustomerType=? , Gender=? , Quantity=? , Tax5Percent=? , Total=? , Payment=? , Cogs=? , GrossMarginPercentage=? , GrossIncome=? , Rating=?, ProductID=?, DateID=?  where InvoiceID=? and SourceID=?
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update SUPERMARKET_SALES set UpdateDate=? , Branch=?, CustomerType=? , Gender=? , Quantity=? , Tax5Percent=? , Total=? , Payment=? , Cogs=? , GrossMarginPercentage=? , GrossIncome=? , Rating=?, ProductID=?, DateID=?  where InvoiceID=? and SourceID=?
 </property>
                 <property
                   dataType="System.Int32"
@@ -1060,94 +1072,101 @@ where [refTable].[InvoiceID] = ?</property>
                       externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
                     <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
+                    <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[CustomerType]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CustomerType"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CustomerType]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Gender]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Gender"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Gender]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Quantity]"
                       cachedDataType="i4"
                       cachedName="Quantity"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Quantity]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Tax5Percent]"
                       cachedDataType="r8"
                       cachedName="Tax5Percent"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Total]"
                       cachedDataType="r8"
                       cachedName="Total"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Total]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Payment]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Payment"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Payment]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Cogs]"
                       cachedDataType="r8"
                       cachedName="Cogs"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Cogs]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[GrossMarginPercentage]"
                       cachedDataType="r8"
                       cachedName="GrossMarginPercentage"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[GrossIncome]"
                       cachedDataType="r8"
                       cachedName="GrossIncome"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Rating]"
                       cachedDataType="r8"
                       cachedName="Rating"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Rating]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[ProductID]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="ProductID"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[DateID]"
+                      cachedDataType="i4"
+                      cachedName="DateID"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[InvoiceID]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="InvoiceID"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[DateID]"
-                      cachedDataType="i4"
-                      cachedName="DateID"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[DateID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1188,7 +1207,8 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="255"
                       name="Param_3">
                       <properties>
                         <property
@@ -1199,7 +1219,7 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="r8"
+                      dataType="i4"
                       name="Param_4">
                       <properties>
                         <property
@@ -1221,8 +1241,7 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Param_6">
                       <properties>
                         <property
@@ -1233,7 +1252,8 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="255"
                       name="Param_7">
                       <properties>
                         <property
@@ -1277,8 +1297,7 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="r8"
                       name="Param_11">
                       <properties>
                         <property
@@ -1289,7 +1308,8 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="255"
                       name="Param_12">
                       <properties>
                         <property
@@ -1300,8 +1320,7 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
-                      dataType="wstr"
-                      length="255"
+                      dataType="i4"
                       name="Param_13">
                       <properties>
                         <property
@@ -1312,8 +1331,20 @@ where [refTable].[InvoiceID] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="255"
                       name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="i4"
+                      name="Param_15">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1408,9 +1439,17 @@ where [refTable].[InvoiceID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="456.8,41.6"
+          Id="Package\Data Flow Task\Look at supermarket_sales in the data stream containing product_line_id in NDS"
+          TopLeft="402.85714371472,228.647058623111" />
+        <NodeLayout
           Size="256.8,41.6"
           Id="Package\Data Flow Task\Load data supermarket_sales in stage"
           TopLeft="273.57142915379,64.999999943025" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="617.142858456592,316.588235016616" />
         <NodeLayout
           Size="137.6,41.6"
           Id="Package\Data Flow Task\Update Data"
@@ -1425,64 +1464,26 @@ where [refTable].[InvoiceID] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-29.6571427993621,44.0470587484568"
+              EndConnector="-29.657142799362,44.047058748457"
               Start="0,0"
-              End="-29.6571427993621,36.5470587484568">
+              End="-29.657142799362,36.547058748457">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.0235293742284" />
+                    End="0,18.0235293742285" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.0235293742284"
-                    Point2="0,22.0235293742284"
-                    Point3="-4,22.0235293742284" />
+                    Point1="0,18.0235293742285"
+                    Point2="0,22.0235293742285"
+                    Point3="-4,22.0235293742285" />
                   <mssgle:LineSegment
-                    End="-25.6571427993621,22.0235293742284" />
+                    End="-25.657142799362,22.0235293742285" />
                   <mssgle:CubicBezierSegment
-                    Point1="-25.6571427993621,22.0235293742284"
-                    Point2="-29.6571427993621,22.0235293742284"
-                    Point3="-29.6571427993621,26.0235293742284" />
+                    Point1="-25.657142799362,22.0235293742285"
+                    Point2="-29.657142799362,22.0235293742285"
+                    Point3="-29.657142799362,26.0235293742285" />
                   <mssgle:LineSegment
-                    End="-29.6571427993621,36.5470587484568" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="456.8,41.6"
-          Id="Package\Data Flow Task\Look at supermarket_sales in the data stream containing product_line_id in NDS"
-          TopLeft="402.85714371472,228.647058623111" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="372.314286354428,192.247058691482">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="258.942857360292,36.3999999316296"
-              Start="0,0"
-              End="258.942857360292,28.8999999316296">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,14.1999999658148" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.1999999658148"
-                    Point2="0,18.1999999658148"
-                    Point3="4,18.1999999658148" />
-                  <mssgle:LineSegment
-                    End="254.942857360292,18.1999999658148" />
-                  <mssgle:CubicBezierSegment
-                    Point1="254.942857360292,18.1999999658148"
-                    Point2="258.942857360292,18.1999999658148"
-                    Point3="258.942857360292,22.1999999658148" />
-                  <mssgle:LineSegment
-                    End="258.942857360292,28.8999999316296" />
+                    End="-29.657142799362,36.547058748457" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1527,10 +1528,6 @@ where [refTable].[InvoiceID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="617.142858456592,316.588235016616" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Error Output]"
           TopLeft="704.200001085656,270.247058623111">
@@ -1555,9 +1552,56 @@ where [refTable].[InvoiceID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="372.314286354428,192.247058691482">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="258.942857360292,36.3999999316296"
+              Start="0,0"
+              End="258.942857360292,28.8999999316296">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.1999999658148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.1999999658148"
+                    Point2="0,18.1999999658148"
+                    Point3="4,18.1999999658148" />
+                  <mssgle:LineSegment
+                    End="254.942857360292,18.1999999658148" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254.942857360292,18.1999999658148"
+                    Point2="258.942857360292,18.1999999658148"
+                    Point3="258.942857360292,22.1999999658148" />
+                  <mssgle:LineSegment
+                    End="258.942857360292,28.8999999316296" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Load data supermarket_sales in stage">
     <Properties>
@@ -1572,7 +1616,7 @@ where [refTable].[InvoiceID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1582,23 +1626,10 @@ where [refTable].[InvoiceID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
