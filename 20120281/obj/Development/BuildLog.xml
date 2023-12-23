@@ -2,43 +2,48 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>20120281</Name>
-    <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+    <LastWriteTime>2023-12-23T06:22:34.8957265Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Excel2Source.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.0496758Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Source2Stage.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.0512573Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS_BRANCH.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.0524545Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS_DATE.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.053232Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS_SUPERMARKET_SALES.dtsx</Name>
-      <LastWriteTime>2023-12-23T04:49:59.2861897Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:22:34.786202Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS_PRODUCT_LINE.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.0549451Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Stage2NDS_PRODUCT.dtsx</Name>
-      <LastWriteTime>2023-12-21T15:41:34.4070209Z</LastWriteTime>
+      <LastWriteTime>2023-12-23T06:10:02.0541228Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NDS2DDS.dtsx</Name>
+      <LastWriteTime>2023-12-23T07:59:17.9599921Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

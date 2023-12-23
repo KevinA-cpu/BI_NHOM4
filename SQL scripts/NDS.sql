@@ -73,11 +73,12 @@ CREATE TABLE BRANCH (
 	UpdateDate Datetime,
 
 );
+
 -- Create Fact Table
 CREATE TABLE SUPERMARKET_SALES(
     ID INT IDENTITY(1,1) PRIMARY KEY,
 	InvoiceID NVARCHAR(255),
-	Branch  NVARCHAR(255),
+	Branch nvarchar(255),
     CustomerType NVARCHAR(255),
     Gender NVARCHAR(255),
     Quantity INT,
