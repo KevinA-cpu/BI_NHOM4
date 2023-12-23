@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{82BFB35D-E77A-487A-BF7D-C7F01BE2B4F1}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{91516562-688D-4947-9C6A-E95165010C9E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}DESKTOP-KDVM3M2.BI_NDS;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-TGVBBNN7;Initial Catalog=BI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}DESKTOP-KDVM3M2.BI_NDS;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B7188499-58B1-4847-AD66-DC59FCA20AA6}DESKTOP-KDVM3M2.BI_STAGE;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-TGVBBNN7;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{B7188499-58B1-4847-AD66-DC59FCA20AA6}DESKTOP-KDVM3M2.BI_STAGE;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -808,7 +808,7 @@ where [refTable].[BRANCH] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150.4,41.6"
+          Size="150,42"
           Id="Package\Data Flow Task"
           TopLeft="60,60" />
       </GraphLayout>
@@ -820,59 +820,25 @@ where [refTable].[BRANCH] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="131.2,41.6"
+          Size="131,42"
           Id="Package\Data Flow Task\Insert Data"
           TopLeft="659.28571568916,343.352940875508" />
         <NodeLayout
-          Size="137.6,41.6"
+          Size="138,42"
           Id="Package\Data Flow Task\Update Data"
           TopLeft="141.428571729636,347.176470283921" />
         <NodeLayout
-          Size="401.6,41.6"
-          Id="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS"
-          TopLeft="272.142857722178,229.411764504794" />
+          Size="201,42"
+          Id="Package\Data Flow Task\Load data branch in stage"
+          TopLeft="273.57142915379,64.999999943025" />
         <NodeLayout
-          Size="143.2,41.6"
+          Size="143,42"
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="295.714286343784,143.764705756338" />
         <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\Data Flow Task\Load data branch in stage"
-          TopLeft="273.57142915379,64.999999943025" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="367.314286343784,185.364705756338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="105.628571378394,44.047058748456"
-              Start="0,0"
-              End="105.628571378394,36.547058748456">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.023529374228" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.023529374228"
-                    Point2="0,22.023529374228"
-                    Point3="4,22.023529374228" />
-                  <mssgle:LineSegment
-                    End="101.628571378394,22.023529374228" />
-                  <mssgle:CubicBezierSegment
-                    Point1="101.628571378394,22.023529374228"
-                    Point2="105.628571378394,22.023529374228"
-                    Point3="105.628571378394,26.023529374228" />
-                  <mssgle:LineSegment
-                    End="105.628571378394,36.547058748456" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="402,42"
+          Id="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS"
+          TopLeft="272.142857722178,229.411764504794" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="370.642857748787,106.599999943025">
@@ -967,9 +933,66 @@ where [refTable].[BRANCH] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="367.314286343784,185.364705756338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="105.628571378394,44.047058748456"
+              Start="0,0"
+              End="105.628571378394,36.547058748456">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.023529374228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.023529374228"
+                    Point2="0,22.023529374228"
+                    Point3="4,22.023529374228" />
+                  <mssgle:LineSegment
+                    End="101.628571378394,22.023529374228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="101.628571378394,22.023529374228"
+                    Point2="105.628571378394,22.023529374228"
+                    Point3="105.628571378394,26.023529374228" />
+                  <mssgle:LineSegment
+                    End="105.628571378394,36.547058748456" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert Data">
     <Properties>
@@ -980,29 +1003,6 @@ where [refTable].[BRANCH] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

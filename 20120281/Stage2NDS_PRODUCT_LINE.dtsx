@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{C649DC74-A60B-422A-847D-1E17E9EEA5E6}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{E82E6E3B-6D27-457F-8D44-A1DCACA6A97B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}DESKTOP-KDVM3M2.BI_NDS;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-TGVBBNN7;Initial Catalog=BI_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{B8B0BF5A-9FED-4BA7-A4B6-4E920E48050D}DESKTOP-KDVM3M2.BI_NDS;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-KDVM3M2;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{B7188499-58B1-4847-AD66-DC59FCA20AA6}DESKTOP-KDVM3M2.BI_STAGE;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=LAPTOP-TGVBBNN7;Initial Catalog=BI_STAGE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package1-{B7188499-58B1-4847-AD66-DC59FCA20AA6}DESKTOP-KDVM3M2.BI_STAGE;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -808,7 +808,7 @@ where [refTable].[ProductLineID] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150.4,41.6"
+          Size="150,42"
           Id="Package\Data Flow Task"
           TopLeft="221.42857177221,169.352941080618" />
       </GraphLayout>
