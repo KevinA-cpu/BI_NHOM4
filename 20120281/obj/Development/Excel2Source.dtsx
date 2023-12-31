@@ -7,15 +7,27 @@
   DTS:CreatorName="DESKTOP-GFADSU2\ASUS"
   DTS:DTSID="{F9144765-A3C7-48A1-9C04-43E88AD27FC8}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
   DTS:LocaleID="1066"
   DTS:ObjectName="Excel2Source"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{28888110-63FE-41C6-A657-3B67D0000DA3}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{257E54DA-2208-4F2D-A2C4-B1016804CD47}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_SOURCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{282851B4-996D-4873-94B9-CB0087B22C2E}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_SOURCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_SOURCE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Excel2Source-{282851B4-996D-4873-94B9-CB0087B22C2E}DESKTOP-GFADSU2\MSSQLSERVER01.BI_SOURCE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_SOURCE]"
       DTS:CreationName="OLEDB"

@@ -7,15 +7,63 @@
   DTS:CreatorName="LAPTOP-TGVBBNN7\ASUS I7"
   DTS:DTSID="{5056E7DE-170C-40ED-8DB0-C0BC0418B1AE}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{4F009506-D957-445D-95BD-B2799E534597}">
+  DTS:VersionBuild="62"
+  DTS:VersionGUID="{2938DDA9-84CE-43CE-A542-32DF4F35C11B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_DDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3E484421-6D40-4F0A-B32D-F476723B8D02}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_DDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{3E484421-6D40-4F0A-B32D-F476723B8D02}DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_METADATA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_METADATA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_METADATA;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}DESKTOP-GFADSU2\MSSQLSERVER01.BI_METADATA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A3DF1B57-C910-4B34-ADDF-7DCEB9D773B9}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{A3DF1B57-C910-4B34-ADDF-7DCEB9D773B9}DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
       DTS:CreationName="OLEDB"
@@ -85,11 +133,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET BRANCH (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'Branch'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -110,11 +158,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET PRODUCT (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'PRODUCT_LINE'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -135,11 +183,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET PRODUCTLINE (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'PRODUCT_LINE'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -160,11 +208,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET SUPERMARKET_SALES (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="select cet, lset from Data_Flow where tablename = 'SUPERMARKET_SALES'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -259,8 +307,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Branch Dimension\Insert Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -388,8 +436,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Branch Dimension\OLE DB Command.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -555,8 +603,8 @@
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Branch Dimension\OLE DB Command 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -698,8 +746,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Branch Dimension\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -899,8 +947,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Branch Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="Defines the connection to use for lookups in the dimension table"
                       name="LookupConnection" />
                   </connections>
@@ -1045,6 +1093,81 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Sequence Container\Date Dimension\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Date Dimension\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Date Dimension\Derived Column.Inputs[Derived Column Input].Columns[Time]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Time"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DBTIME2,7)#{Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DBTIME2,7)Time</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Sequence Container\Date Dimension\Derived Column.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Sequence Container\Date Dimension\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\Date Dimension\Insert Destination"
                   componentClassID="Microsoft.OLEDBDestination"
                   contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1103,8 +1226,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Date Dimension\Insert Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1117,11 +1240,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       name="OLE DB Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                          refId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[DateID]"
                           cachedDataType="i4"
-                          cachedName="SourceID"
+                          cachedName="DateID"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
-                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]" />
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]" />
                         <inputColumn
                           refId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Day]"
                           cachedDataType="i4"
@@ -1142,9 +1265,9 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]" />
                         <inputColumn
                           refId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[Time]"
-                          cachedDataType="dbTime2"
+                          cachedDataType="wstr"
+                          cachedLength="255"
                           cachedName="Time"
-                          cachedScale="7"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]" />
                       </inputColumns>
@@ -1172,9 +1295,9 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           name="Year" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
-                          dataType="dbTime2"
-                          name="Time"
-                          scale="7" />
+                          dataType="wstr"
+                          length="16"
+                          name="Time" />
                       </externalMetadataColumns>
                     </input>
                   </inputs>
@@ -1230,8 +1353,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Date Dimension\OLE DB Command.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1244,11 +1367,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       name="OLE DB Command Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[SourceID]"
+                          refId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[DateID]"
                           cachedDataType="i4"
-                          cachedName="SourceID"
+                          cachedName="DateID"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]" />
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]" />
                         <inputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[Day]"
                           cachedDataType="i4"
@@ -1263,9 +1386,9 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Month]" />
                         <inputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].Columns[Time]"
-                          cachedDataType="dbTime2"
+                          cachedDataType="wstr"
+                          cachedLength="255"
                           cachedName="Time"
-                          cachedScale="7"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]" />
                         <inputColumn
@@ -1301,14 +1424,14 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                         </externalMetadataColumn>
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                          dataType="dbTime2"
-                          name="Param_2"
-                          scale="7">
+                          dataType="wstr"
+                          length="16"
+                          name="Param_2">
                           <properties>
                             <property
                               dataType="System.Int32"
                               description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                              name="DBParamInfoFlags">1073741889</property>
+                              name="DBParamInfoFlags">65</property>
                           </properties>
                         </externalMetadataColumn>
                         <externalMetadataColumn
@@ -1419,8 +1542,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Date Dimension\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -1429,15 +1552,6 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output]"
                       name="OLE DB Source Output">
                       <outputColumns>
-                        <outputColumn
-                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]"
-                          name="SourceID"
-                          truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Day]"
                           dataType="i4"
@@ -1467,21 +1581,26 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]"
-                          dataType="dbTime2"
+                          dataType="wstr"
                           errorOrTruncationOperation="Conversion"
                           errorRowDisposition="FailComponent"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
+                          length="255"
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]"
                           name="Time"
-                          scale="7"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateID]"
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]"
+                          name="DateID"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                          dataType="i4"
-                          name="SourceID" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Day]"
                           dataType="i4"
@@ -1496,9 +1615,13 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           name="Year" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Time]"
-                          dataType="dbTime2"
-                          name="Time"
-                          scale="7" />
+                          dataType="wstr"
+                          length="16"
+                          name="Time" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateID]"
+                          dataType="i4"
+                          name="DateID" />
                       </externalMetadataColumns>
                     </output>
                     <output
@@ -1507,10 +1630,10 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       name="OLE DB Source Error Output">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceID]"
+                          refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateID]"
                           dataType="i4"
-                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceID]"
-                          name="SourceID" />
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateID]"
+                          name="DateID" />
                         <outputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Day]"
                           dataType="i4"
@@ -1528,10 +1651,10 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           name="Year" />
                         <outputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Time]"
-                          dataType="dbTime2"
+                          dataType="wstr"
+                          length="16"
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Time]"
-                          name="Time"
-                          scale="7" />
+                          name="Time" />
                         <outputColumn
                           refId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                           dataType="i4"
@@ -1599,8 +1722,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="Defines the connection to use for lookups in the dimension table"
                       name="LookupConnection" />
                   </connections>
@@ -1610,11 +1733,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       name="Slowly Changing Dimension Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SourceID]"
+                          refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DateID]"
                           cachedDataType="i4"
-                          cachedName="SourceID"
+                          cachedName="DateID"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DateID]"
-                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]">
+                          lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]">
                           <properties>
                             <property
                               dataType="System.Int32"
@@ -1650,9 +1773,9 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                         </inputColumn>
                         <inputColumn
                           refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Time]"
-                          cachedDataType="dbTime2"
+                          cachedDataType="wstr"
+                          cachedLength="255"
                           cachedName="Time"
-                          cachedScale="7"
                           externalMetadataColumnId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Time]"
                           lineageId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output].Columns[Time]">
                           <properties>
@@ -1692,9 +1815,9 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           name="Month" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Time]"
-                          dataType="dbTime2"
-                          name="Time"
-                          scale="7" />
+                          dataType="wstr"
+                          length="16"
+                          name="Time" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Year]"
                           dataType="i4"
@@ -1756,6 +1879,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
               </components>
               <paths>
                 <path
+                  refId="Package\Sequence Container\Date Dimension.Paths[Derived Column Output]"
+                  endId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Derived Column Output"
+                  startId="Package\Sequence Container\Date Dimension\Derived Column.Outputs[Derived Column Output]" />
+                <path
                   refId="Package\Sequence Container\Date Dimension.Paths[Inferred Member Updates Output]"
                   endId="Package\Sequence Container\Date Dimension\OLE DB Command.Inputs[OLE DB Command Input]"
                   name="Inferred Member Updates Output"
@@ -1767,7 +1895,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   startId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Outputs[New Output]" />
                 <path
                   refId="Package\Sequence Container\Date Dimension.Paths[OLE DB Source Output]"
-                  endId="Package\Sequence Container\Date Dimension\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  endId="Package\Sequence Container\Date Dimension\Derived Column.Inputs[Derived Column Input]"
                   name="OLE DB Source Output"
                   startId="Package\Sequence Container\Date Dimension\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
@@ -1995,8 +2123,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Dimension\Insert Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2008,19 +2136,6 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       hasSideEffects="true"
                       name="OLE DB Destination Input">
                       <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\Sequence Container\Product Dimension\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
-                          cachedDataType="r8"
-                          cachedName="UnitPrice"
-                          externalMetadataColumnId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          lineageId="Package\Sequence Container\Product Dimension\Union All.Outputs[Union All Output 1].Columns[UnitPrice]" />
                         <inputColumn
                           refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
                           cachedDataType="i4"
@@ -2040,6 +2155,19 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           externalMetadataColumnId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
                           lineageId="Package\Sequence Container\Product Dimension\Union All.Outputs[Union All Output 1].Columns[UpdateDate]" />
                         <inputColumn
+                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Sequence Container\Product Dimension\Union All.Outputs[Union All Output 1].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                          cachedDataType="r8"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Sequence Container\Product Dimension\Union All.Outputs[Union All Output 1].Columns[UnitPrice]" />
+                        <inputColumn
                           refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].Columns[ProductLine]"
                           cachedDataType="wstr"
                           cachedLength="255"
@@ -2054,15 +2182,6 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           dataType="i4"
                           name="ID" />
                         <externalMetadataColumn
-                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
-                          dataType="wstr"
-                          length="255"
-                          name="ProductID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
-                          dataType="r8"
-                          name="UnitPrice" />
-                        <externalMetadataColumn
                           refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                           dataType="i4"
                           name="SourceID" />
@@ -2074,6 +2193,15 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                           refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
                           dataType="dbTimeStamp"
                           name="UpdateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="wstr"
+                          length="255"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                          dataType="r8"
+                          name="UnitPrice" />
                         <externalMetadataColumn
                           refId="Package\Sequence Container\Product Dimension\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductLineID]"
                           dataType="wstr"
@@ -2134,8 +2262,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Dimension\OLE DB Command.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2248,8 +2376,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Dimension\OLE DB Command 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2459,8 +2587,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Dimension\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -2678,8 +2806,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="Defines the connection to use for lookups in the dimension table"
                       name="LookupConnection" />
                   </connections>
@@ -3191,8 +3319,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Line Dimension\Insert Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3320,8 +3448,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Line Dimension\OLE DB Command.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3487,8 +3615,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Line Dimension\OLE DB Command 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3630,8 +3758,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Line Dimension\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -3831,8 +3959,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Product Line Dimension\Slowly Changing Dimension.Connections[LookupConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
                       description="Defines the connection to use for lookups in the dimension table"
                       name="LookupConnection" />
                   </connections>
@@ -3977,6 +4105,295 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
               version="1">
               <components>
                 <component
+                  refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SupermarketSalesFact]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_DDS]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InvoiceID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="InvoiceID"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerType]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="CustomerType"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                          cachedDataType="i4"
+                          cachedName="Quantity"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Tax5Percent]"
+                          cachedDataType="r8"
+                          cachedName="Tax5Percent"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Total]"
+                          cachedDataType="r8"
+                          cachedName="Total"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Payment]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Payment"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Payment]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cogs]"
+                          cachedDataType="r8"
+                          cachedName="Cogs"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cogs]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GrossMarginPercentage]"
+                          cachedDataType="r8"
+                          cachedName="GrossMarginPercentage"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GrossIncome]"
+                          cachedDataType="r8"
+                          cachedName="GrossIncome"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Rating]"
+                          cachedDataType="r8"
+                          cachedName="Rating"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rating]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateID]"
+                          cachedDataType="i4"
+                          cachedName="DateID"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                          cachedDataType="i4"
+                          cachedName="SourceID"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="CreatedDate"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="UpdateDate"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Branch]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Branch"
+                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchID]"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InvoiceID]"
+                          dataType="wstr"
+                          length="255"
+                          name="InvoiceID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerType]"
+                          dataType="wstr"
+                          length="255"
+                          name="CustomerType" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                          dataType="wstr"
+                          length="255"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                          dataType="i4"
+                          name="Quantity" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Tax5Percent]"
+                          dataType="r8"
+                          name="Tax5Percent" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total]"
+                          dataType="r8"
+                          name="Total" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
+                          dataType="i4"
+                          name="DateID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Payment]"
+                          dataType="wstr"
+                          length="255"
+                          name="Payment" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cogs]"
+                          dataType="r8"
+                          name="Cogs" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossMarginPercentage]"
+                          dataType="r8"
+                          name="GrossMarginPercentage" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GrossIncome]"
+                          dataType="r8"
+                          name="GrossIncome" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Rating]"
+                          dataType="r8"
+                          name="Rating" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                          dataType="dbTimeStamp"
+                          name="CreatedDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                          dataType="dbTimeStamp"
+                          name="UpdateDate" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                          dataType="i4"
+                          name="SourceID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchID]"
+                          dataType="wstr"
+                          length="255"
+                          name="BranchID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -4030,8 +4447,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                   <connections>
                     <connection
                       refId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_NDS]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                       description="The OLE DB runtime connection used to access the database."
                       name="OleDbConnection" />
                   </connections>
@@ -4409,288 +4826,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                     </output>
                   </outputs>
                 </component>
-                <component
-                  refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination"
-                  componentClassID="Microsoft.SQLServerDestination"
-                  contactInfo="SQL Server Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;5"
-                  description="SQL Server Destination"
-                  name="SQL Server Destination"
-                  version="5">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.String"
-                      description="The name of the database object to copy data into."
-                      expressionType="Notify"
-                      name="BulkInsertTableName">[dbo].[SupermarketSalesFact]</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies that any constraints on the destination object are checked during the data copy operation. Corresponds to the bulk insert CHECK_CONSTRAINTS option."
-                      name="BulkInsertCheckConstraints">true</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the number of the first row to copy. Corresponds to the bulk insert FIRSTROW option."
-                      expressionType="Notify"
-                      name="BulkInsertFirstRow">-1</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies that any insert triggers defined on the destination object will execute during the data copy. Corresponds to the bulk insert FIRE_TRIGGERS option."
-                      name="BulkInsertFireTriggers">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Corresponds to the bulk insert KEEPIDENTITY option."
-                      name="BulkInsertKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null copied to the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="BulkInsertKeepNulls">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the number of the last row to copy. Corresponds to the bulk insert LASTROW option."
-                      expressionType="Notify"
-                      name="BulkInsertLastRow">-1</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the maximum number of syntax errors and compilation errors that can occur before the data copy operation is canceled. Each row that cannot be copied is ignored and counted as one error. Corresponds to the bulk insert MAXERRORS option."
-                      name="BulkInsertMaxErrors">-1</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies how the data to be copied is sorted. Corresponds to the bulk insert ORDER option."
-                      expressionType="Notify"
-                      name="BulkInsertOrder"></property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies that a table-level lock is acquired for the duration of the data copy operation. Corresponds to the bulk insert TABLOCK option."
-                      name="BulkInsertTablock">true</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies in seconds the amount of time the SQL Destination adapter will wait before terminating if there is no data available for insertion.  A timeout value of 0 means the SQL Destination adapter will not time out."
-                      expressionType="Notify"
-                      name="Timeout">30</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion."
-                      name="MaxInsertCommitSize">0</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      connectionManagerRefId="Package.ConnectionManagers[LAPTOP-TGVBBNN7.BI_DDS]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input]"
-                      hasSideEffects="true"
-                      name="SQL Server Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[InvoiceID]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="InvoiceID"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[InvoiceID]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[InvoiceID]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[CustomerType]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="CustomerType"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CustomerType]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerType]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Gender]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Gender"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Gender]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Gender]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Quantity]"
-                          cachedDataType="i4"
-                          cachedName="Quantity"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Quantity]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Tax5Percent]"
-                          cachedDataType="r8"
-                          cachedName="Tax5Percent"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Tax5Percent]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Tax5Percent]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Total]"
-                          cachedDataType="r8"
-                          cachedName="Total"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Total]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Total]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Payment]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Payment"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Payment]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Payment]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Cogs]"
-                          cachedDataType="r8"
-                          cachedName="Cogs"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Cogs]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cogs]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[GrossMarginPercentage]"
-                          cachedDataType="r8"
-                          cachedName="GrossMarginPercentage"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[GrossMarginPercentage]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[GrossMarginPercentage]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[GrossIncome]"
-                          cachedDataType="r8"
-                          cachedName="GrossIncome"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[GrossIncome]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[GrossIncome]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Rating]"
-                          cachedDataType="r8"
-                          cachedName="Rating"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Rating]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Rating]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[ProductID]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="ProductID"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[ProductID]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[DateID]"
-                          cachedDataType="i4"
-                          cachedName="DateID"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[DateID]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[CreatedDate]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="CreatedDate"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CreatedDate]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[UpdateDate]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="UpdateDate"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[UpdateDate]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[SourceID]"
-                          cachedDataType="i4"
-                          cachedName="SourceID"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SourceID]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]" />
-                        <inputColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].Columns[Branch]"
-                          cachedDataType="wstr"
-                          cachedLength="255"
-                          cachedName="Branch"
-                          externalMetadataColumnId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[BranchID]"
-                          lineageId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output].Columns[Branch]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[ID]"
-                          dataType="i4"
-                          name="ID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[InvoiceID]"
-                          dataType="wstr"
-                          length="255"
-                          name="InvoiceID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[BranchID]"
-                          dataType="wstr"
-                          length="255"
-                          name="BranchID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CustomerType]"
-                          dataType="wstr"
-                          length="255"
-                          name="CustomerType" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Gender]"
-                          dataType="wstr"
-                          length="255"
-                          name="Gender" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[ProductID]"
-                          dataType="wstr"
-                          length="255"
-                          name="ProductID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Quantity]"
-                          dataType="i4"
-                          name="Quantity" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Tax5Percent]"
-                          dataType="r8"
-                          name="Tax5Percent" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Total]"
-                          dataType="r8"
-                          name="Total" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[DateID]"
-                          dataType="i4"
-                          name="DateID" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Payment]"
-                          dataType="wstr"
-                          length="255"
-                          name="Payment" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Cogs]"
-                          dataType="r8"
-                          name="Cogs" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[GrossMarginPercentage]"
-                          dataType="r8"
-                          name="GrossMarginPercentage" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[GrossIncome]"
-                          dataType="r8"
-                          name="GrossIncome" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[Rating]"
-                          dataType="r8"
-                          name="Rating" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[CreatedDate]"
-                          dataType="dbTimeStamp"
-                          name="CreatedDate" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[UpdateDate]"
-                          dataType="dbTimeStamp"
-                          name="UpdateDate" />
-                        <externalMetadataColumn
-                          refId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input].ExternalColumns[SourceID]"
-                          dataType="i4"
-                          name="SourceID" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                </component>
               </components>
               <paths>
                 <path
                   refId="Package\Sequence Container\Supermarket Sales Fact.Paths[OLE DB Source Output]"
-                  endId="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination.Inputs[SQL Server Destination Input]"
+                  endId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   name="OLE DB Source Output"
                   startId="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source.Outputs[OLE DB Source Output]" />
               </paths>
@@ -4742,11 +4882,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET PRODUCT (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'BRANCH'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4759,11 +4899,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET PRODUCT(meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'PRODUCT'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4776,11 +4916,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET PRODUCT_LINE (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'PRODUCT_LINE'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4793,11 +4933,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET SUPERMARKET_SALES (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="update Data_Flow set cet = getdate() where tablename = 'SUPERMARKET_SALES'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4814,7 +4954,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{06D4CBE8-7502-4D6B-89F1-76D57136498D}"
+          SQLTask:Connection="{4CFE5EF5-E149-4E66-9478-F1870CC05DC0}"
           SQLTask:SqlStatementSource="update Data_Flow set lset = getdate()" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4914,7 +5054,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
           Id="Package\Get CET, LSET PRODUCT (meta data)"
           TopLeft="373.57142923894,136.470588168265" />
         <NodeLayout
-          Size="279,42"
+          Size="278.666666666667,42"
           Id="Package\Get CET, LSET PRODUCTLINE (meta data)"
           TopLeft="60,136.470588168265" />
         <NodeLayout
@@ -4926,11 +5066,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
           Id="Package\Sequence Container\Branch Dimension"
           TopLeft="14,196" />
         <NodeLayout
-          Size="153,42"
+          Size="153.333333333334,42"
           Id="Package\Sequence Container\Date Dimension"
           TopLeft="21.333333333333,77.666666666667" />
         <NodeLayout
-          Size="167,42"
+          Size="166.666666666667,42"
           Id="Package\Sequence Container\Product Dimension"
           TopLeft="285,193" />
         <NodeLayout
@@ -5044,8 +5184,8 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="505,415"
-          Size="505,458"
+          PanelSize="505.333333333334,414.666666666667"
+          Size="505.333333333334,458"
           Id="Package\Sequence Container"
           TopLeft="398.5,294.5" />
         <NodeLayout
@@ -5057,13 +5197,17 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
           Id="Package\Set CET PRODUCT(meta data)"
           TopLeft="374.285714954746,60" />
         <NodeLayout
-          Size="253,42"
+          Size="253.333333333334,42"
           Id="Package\Set CET PRODUCT_LINE (meta data)"
           TopLeft="60.714285715806,60" />
         <NodeLayout
-          Size="285,42"
+          Size="285.333333333334,42"
           Id="Package\Set CET SUPERMARKET_SALES (meta data)"
           TopLeft="957.028572006367,60" />
+        <NodeLayout
+          Size="162.666666666667,42"
+          Id="Package\set lset for all"
+          TopLeft="570,807" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="187.214285715806,102">
@@ -5336,10 +5480,6 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\set lset for all"
-          TopLeft="570,807" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="651.25,752.5">
@@ -5371,28 +5511,28 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="166,42"
+          Size="166.666666666667,42.6666666666667"
           Id="Package\Sequence Container\Branch Dimension\OLE DB Command"
-          TopLeft="229,209.5" />
+          TopLeft="230.166666666667,209.5" />
         <NodeLayout
-          Size="209,42"
+          Size="209.333333333334,42"
           Id="Package\Sequence Container\Branch Dimension\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
+          TopLeft="208.833333333333,107.5" />
         <NodeLayout
-          Size="175,42"
+          Size="176,42.6666666666667"
           Id="Package\Sequence Container\Branch Dimension\OLE DB Command 1"
-          TopLeft="455.5,209.5" />
+          TopLeft="457.5,209.5" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\Branch Dimension\OLE DB Source"
-          TopLeft="237,5.49999999999989" />
+          TopLeft="238.5,5.49999999999989" />
         <NodeLayout
-          Size="163,42"
+          Size="164,42.6666666666667"
           Id="Package\Sequence Container\Branch Dimension\Insert Destination"
           TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\Sequence Container\Branch Dimension.Paths[OLE DB Source Output]"
-          TopLeft="312,47.4999999999999">
+          TopLeft="313.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5414,43 +5554,43 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Branch Dimension.Paths[New Output]"
-          TopLeft="261.75,149.5">
+          TopLeft="263.166666666667,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-174.75,60"
+              EndConnector="-175.666666666667,60"
               Start="0,0"
-              End="-174.75,52.5">
+              End="-175.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,16.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,16.5031446540881"
+                    Point2="0,20.5031446540881"
+                    Point3="-4,20.5031446540881" />
                   <mssgle:LineSegment
-                    End="-170.75,20.503937007874" />
+                    End="-171.666666666667,20.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="-170.75,20.503937007874"
-                    Point2="-174.75,20.503937007874"
-                    Point3="-174.75,24.503937007874" />
+                    Point1="-171.666666666667,20.5031446540881"
+                    Point2="-175.666666666667,20.5031446540881"
+                    Point3="-175.666666666667,24.5031446540881" />
                   <mssgle:LineSegment
-                    End="-174.75,52.5" />
+                    End="-175.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-114.46638671875,25.503937007874,54.1827734375,11.43359375"
+              BoundingBox="-114.924720052084,25.5031446540881,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Branch Dimension.Paths[Inferred Member Updates Output]"
-          TopLeft="312,149.5">
+          TopLeft="313.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5474,37 +5614,37 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Branch Dimension.Paths[Changing Attribute Updates Output]"
-          TopLeft="362.25,149.5">
+          TopLeft="363.833333333333,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="180.75,60"
+              EndConnector="181.666666666667,60"
               Start="0,0"
-              End="180.75,52.5">
+              End="181.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,16.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="4,20.503937007874" />
+                    Point1="0,16.5031446540881"
+                    Point2="0,20.5031446540881"
+                    Point3="4,20.5031446540881" />
                   <mssgle:LineSegment
-                    End="176.75,20.503937007874" />
+                    End="177.666666666667,20.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="176.75,20.503937007874"
-                    Point2="180.75,20.503937007874"
-                    Point3="180.75,24.503937007874" />
+                    Point1="177.666666666667,20.5031446540881"
+                    Point2="181.666666666667,20.5031446540881"
+                    Point3="181.666666666667,24.5031446540881" />
                   <mssgle:LineSegment
-                    End="180.75,52.5" />
+                    End="181.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="11.84109375,25.503937007874,157.0678125,11.6630859375"
+              BoundingBox="12.2994270833333,25.5031446540881,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5519,7 +5659,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{DF6D8A3D-3729-4ACF-BFB4-5C0CFEE801A7}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[BranchDimension]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -5590,62 +5730,22 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
     design-time-name="Package\Sequence Container\Date Dimension">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\Date Dimension\OLE DB Source"
-          TopLeft="237,5.5" />
+          TopLeft="238.5,5.5" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\Sequence Container\Date Dimension\OLE DB Command"
-          TopLeft="362,211.5" />
-        <NodeLayout
-          Size="209,42"
+          Size="209.333333333334,42"
           Id="Package\Sequence Container\Date Dimension\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
+          TopLeft="208.833333333333,210.166666666667" />
         <NodeLayout
-          Size="163,42"
-          Id="Package\Sequence Container\Date Dimension\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
-        <EdgeLayout
-          Id="Package\Sequence Container\Date Dimension.Paths[Inferred Member Updates Output]"
-          TopLeft="345.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="99.5,62"
-              Start="0,0"
-              End="99.5,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.0826210826211" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.0826210826211"
-                    Point2="0,25.0826210826211"
-                    Point3="4,25.0826210826211" />
-                  <mssgle:LineSegment
-                    End="95.5,25.0826210826211" />
-                  <mssgle:CubicBezierSegment
-                    Point1="95.5,25.0826210826211"
-                    Point2="99.5,25.0826210826211"
-                    Point3="99.5,29.0826210826211" />
-                  <mssgle:LineSegment
-                    End="99.5,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-24.65298828125,30.0826210826211,148.8059765625,11.658203125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Date Dimension\Derived Column"
+          TopLeft="236.166666666667,107.5" />
         <EdgeLayout
           Id="Package\Sequence Container\Date Dimension.Paths[OLE DB Source Output]"
-          TopLeft="312,47.5">
+          TopLeft="313.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5662,63 +5762,114 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Sequence Container\Date Dimension.Paths[New Output]"
-          TopLeft="278.5,149.5">
+          Id="Package\Sequence Container\Date Dimension.Paths[Derived Column Output]"
+          TopLeft="313.5,150.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
+              EndConnector="0,60"
               Start="0,0"
-              End="-191.5,52.5">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Sequence Container\Date Dimension\Insert Destination"
+          TopLeft="5.50000000000006,312.166666666667" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Date Dimension.Paths[New Output]"
+          TopLeft="279.944444444444,252.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.444444444444,60.0000000000001"
+              Start="0,0"
+              End="-192.444444444444,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
+                    End="0,20.2730720606827" />
                   <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
                   <mssgle:LineSegment
-                    End="-191.5,52.5" />
+                    End="-188.444444444444,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.444444444444,24.2730720606827"
+                    Point2="-192.444444444444,24.2730720606827"
+                    Point3="-192.444444444444,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-192.444444444444,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-123.313608940972,29.2730720606827,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\Sequence Container\Date Dimension\OLE DB Command"
+          TopLeft="230.166666666667,312.166666666667" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Date Dimension.Paths[Inferred Member Updates Output]"
+          TopLeft="347.055555555556,252.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5555555555555,60.0000000000001"
+              Start="0,0"
+              End="-33.5555555555555,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2730720606827"
+                    Point2="0,24.2730720606827"
+                    Point3="-4,24.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-29.5555555555555,24.2730720606827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5555555555555,24.2730720606827"
+                    Point2="-33.5555555555555,24.2730720606827"
+                    Point3="-33.5555555555555,28.2730720606827" />
+                  <mssgle:LineSegment
+                    End="-33.5555555555555,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.1807660590278,29.2730720606827,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Date Dimension\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Sequence Container\Date Dimension\Slowly Changing Dimension">
     <Properties>
@@ -5727,11 +5878,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{DF6D8A3D-3729-4ACF-BFB4-5C0CFEE801A7}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[DateDimension]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DateID]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;DateID&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
@@ -5780,165 +5931,178 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Date Dimension\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container\Product Dimension">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="166,42"
+          Size="166.666666666667,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\OLE DB Command"
-          TopLeft="5.50000000000006,311.5" />
+          TopLeft="5.50000000000004,312.166666666667" />
         <NodeLayout
-          Size="175,42"
+          Size="176,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\OLE DB Command 1"
-          TopLeft="294,209.5" />
+          TopLeft="293.833333333333,209.5" />
         <NodeLayout
-          Size="163,42"
+          Size="164,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\Derived Column 1"
-          TopLeft="151,515.5" />
+          TopLeft="150.833333333333,517.5" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\Product Dimension\OLE DB Source"
-          TopLeft="157.5,5.5" />
+          TopLeft="157.833333333333,5.5" />
         <NodeLayout
-          Size="121,42"
+          Size="121.333333333334,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\Union All"
-          TopLeft="172,413.5" />
+          TopLeft="172.166666666667,414.833333333334" />
         <NodeLayout
-          Size="209,42"
+          Size="209.333333333334,42"
           Id="Package\Sequence Container\Product Dimension\Slowly Changing Dimension"
-          TopLeft="128,107.5" />
+          TopLeft="128.166666666667,107.5" />
         <NodeLayout
-          Size="163,42"
+          Size="164,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\Insert Destination"
-          TopLeft="151,617.5" />
+          TopLeft="150.833333333333,620.166666666667" />
         <NodeLayout
-          Size="154,42"
+          Size="154.666666666667,42.6666666666667"
           Id="Package\Sequence Container\Product Dimension\Derived Column"
-          TopLeft="17.5000000000001,209.5" />
+          TopLeft="17.5,209.5" />
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[New Output]"
-          TopLeft="232.5,149.5">
+          TopLeft="232.833333333333,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.8333333333334,264"
+              EndConnector="18.8888888888889,265.333333333334"
               Start="0,0"
-              End="18.8333333333334,256.5">
+              End="18.8888888888889,257.833333333334">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,152.332789559543" />
+                    End="0,153.127982646421" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,152.332789559543"
-                    Point2="0,156.332789559543"
-                    Point3="4,156.332789559543" />
+                    Point1="0,153.127982646421"
+                    Point2="0,157.127982646421"
+                    Point3="4,157.127982646421" />
                   <mssgle:LineSegment
-                    End="14.8333333333334,156.332789559543" />
+                    End="14.8888888888889,157.127982646421" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.8333333333334,156.332789559543"
-                    Point2="18.8333333333334,156.332789559543"
-                    Point3="18.8333333333334,160.332789559543" />
+                    Point1="14.8888888888889,157.127982646421"
+                    Point2="18.8888888888889,157.127982646421"
+                    Point3="18.8888888888889,161.127982646421" />
                   <mssgle:LineSegment
-                    End="18.8333333333334,256.5" />
+                    End="18.8888888888889,257.833333333334" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-17.6747200520833,161.332789559543,54.1827734375,11.43359375"
+              BoundingBox="-17.6469422743056,162.127982646421,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[Inferred Member Updates Output]"
-          TopLeft="282.75,149.5">
+          TopLeft="283.166666666667,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="98.75,60"
+              EndConnector="98.6666666666667,60"
               Start="0,0"
-              End="98.75,52.5">
+              End="98.6666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,16.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="4,20.503937007874" />
+                    Point1="0,16.5031446540881"
+                    Point2="0,20.5031446540881"
+                    Point3="4,20.5031446540881" />
                   <mssgle:LineSegment
-                    End="94.75,20.503937007874" />
+                    End="94.6666666666667,20.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="94.75,20.503937007874"
-                    Point2="98.75,20.503937007874"
-                    Point3="98.75,24.503937007874" />
+                    Point1="94.6666666666667,20.5031446540881"
+                    Point2="98.6666666666667,20.5031446540881"
+                    Point3="98.6666666666667,24.5031446540881" />
                   <mssgle:LineSegment
-                    End="98.75,52.5" />
+                    End="98.6666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-25.02798828125,25.503937007874,148.8059765625,11.658203125"
+              BoundingBox="-25.0696549479167,25.5031446540881,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[Historical Attribute Inserts Output]"
-          TopLeft="182.25,149.5">
+          TopLeft="182.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87.75,60"
+              EndConnector="-87.6666666666667,60"
               Start="0,0"
-              End="-87.75,52.5">
+              End="-87.6666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.503937007874" />
+                    End="0,16.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.503937007874"
-                    Point2="0,20.503937007874"
-                    Point3="-4,20.503937007874" />
+                    Point1="0,16.5031446540881"
+                    Point2="0,20.5031446540881"
+                    Point3="-4,20.5031446540881" />
                   <mssgle:LineSegment
-                    End="-83.75,20.503937007874" />
+                    End="-83.6666666666667,20.5031446540881" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83.75,20.503937007874"
-                    Point2="-87.75,20.503937007874"
-                    Point3="-87.75,24.503937007874" />
+                    Point1="-83.6666666666667,20.5031446540881"
+                    Point2="-87.6666666666667,20.5031446540881"
+                    Point3="-87.6666666666667,24.5031446540881" />
                   <mssgle:LineSegment
-                    End="-87.75,52.5" />
+                    End="-87.6666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-118.93138671875,25.503937007874,150.1127734375,11.609375"
+              BoundingBox="-118.889720052083,25.5031446540881,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[Derived Column Output1]"
-          TopLeft="232.5,557.5">
+          TopLeft="232.833333333333,560.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5949,18 +6113,18 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[Derived Column Output]"
-          TopLeft="91.5000000000001,251.5">
+          TopLeft="91.8333333333334,252.166666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5971,7 +6135,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[Union All Output 1]"
-          TopLeft="232.5,455.5">
+          TopLeft="232.833333333333,457.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -5993,7 +6157,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[OLE DB Source Output]"
-          TopLeft="232.5,47.5">
+          TopLeft="232.833333333333,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6015,30 +6179,30 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Dimension.Paths[OLE DB Command Output]"
-          TopLeft="88.5000000000001,353.5">
+          TopLeft="88.8333333333334,354.833333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="125.166666666667,60"
+              EndConnector="125.111111111111,60.0000000000001"
               Start="0,0"
-              End="125.166666666667,52.5">
+              End="125.111111111111,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5301794453507" />
+                    End="0,31.531453362256" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5301794453507"
-                    Point2="0,35.5301794453507"
-                    Point3="4,35.5301794453507" />
+                    Point1="0,31.531453362256"
+                    Point2="0,35.531453362256"
+                    Point3="4,35.531453362256" />
                   <mssgle:LineSegment
-                    End="121.166666666667,35.5301794453507" />
+                    End="121.111111111111,35.531453362256" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.166666666667,35.5301794453507"
-                    Point2="125.166666666667,35.5301794453507"
-                    Point3="125.166666666667,39.5301794453507" />
+                    Point1="121.111111111111,35.531453362256"
+                    Point2="125.111111111111,35.531453362256"
+                    Point3="125.111111111111,39.531453362256" />
                   <mssgle:LineSegment
-                    End="125.166666666667,52.5" />
+                    End="125.111111111111,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6071,7 +6235,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{DF6D8A3D-3729-4ACF-BFB4-5C0CFEE801A7}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[ProductDimension]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -6134,34 +6298,47 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Product Dimension\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container\Product Line Dimension">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="166,42"
+          Size="166.666666666667,42.6666666666667"
           Id="Package\Sequence Container\Product Line Dimension\OLE DB Command"
-          TopLeft="226,248.5" />
+          TopLeft="247.166666160027,281.499997854233" />
         <NodeLayout
-          Size="209,42"
+          Size="209.333333333334,42"
           Id="Package\Sequence Container\Product Line Dimension\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
+          TopLeft="208.833333333333,107.5" />
         <NodeLayout
-          Size="175,42"
+          Size="176,42.6666666666667"
           Id="Package\Sequence Container\Product Line Dimension\OLE DB Command 1"
-          TopLeft="452.5,248.5" />
+          TopLeft="510.499998420477,299.499997317791" />
         <NodeLayout
           Size="150,42"
           Id="Package\Sequence Container\Product Line Dimension\OLE DB Source"
-          TopLeft="237,5.49999999999989" />
+          TopLeft="238.5,5.49999999999989" />
         <NodeLayout
-          Size="163,42"
+          Size="164,42.6666666666667"
           Id="Package\Sequence Container\Product Line Dimension\Insert Destination"
-          TopLeft="2.50000000000006,248.5" />
+          TopLeft="2.50000008940702,259.499998509884" />
         <EdgeLayout
           Id="Package\Sequence Container\Product Line Dimension.Paths[OLE DB Source Output]"
-          TopLeft="312,47.4999999999999">
+          TopLeft="313.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6183,97 +6360,109 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Line Dimension.Paths[New Output]"
-          TopLeft="261.75,149.5">
+          TopLeft="263.166666666667,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-177.75,99"
+              EndConnector="-178.66666657726,109.999998509884"
               Start="0,0"
-              End="-177.75,91.5">
+              End="-178.66666657726,102.499998509884">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.8314960629921" />
+                    End="0,33.5890980232937" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.8314960629921"
-                    Point2="0,33.8314960629921"
-                    Point3="-4,33.8314960629921" />
+                    Point1="0,33.5890980232937"
+                    Point2="0,37.5890980232937"
+                    Point3="-4,37.5890980232937" />
                   <mssgle:LineSegment
-                    End="-173.75,33.8314960629921" />
+                    End="-174.66666657726,37.5890980232937" />
                   <mssgle:CubicBezierSegment
-                    Point1="-173.75,33.8314960629921"
-                    Point2="-177.75,33.8314960629921"
-                    Point3="-177.75,37.8314960629921" />
+                    Point1="-174.66666657726,37.5890980232937"
+                    Point2="-178.66666657726,37.5890980232937"
+                    Point3="-178.66666657726,41.5890980232937" />
                   <mssgle:LineSegment
-                    End="-177.75,91.5" />
+                    End="-178.66666657726,102.499998509884" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-115.96638671875,38.8314960629921,54.1827734375,11.43359375"
+              BoundingBox="-116.42472000738,42.5890980232937,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Line Dimension.Paths[Inferred Member Updates Output]"
-          TopLeft="310.5,149.5">
+          TopLeft="313.5,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,99"
+              EndConnector="16.9999994933606,131.999997854233"
               Start="0,0"
-              End="0,91.5">
+              End="16.9999994933606,124.499997854233">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,91.5" />
+                    End="0,61.9999989271165" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,61.9999989271165"
+                    Point2="0,65.9999989271165"
+                    Point3="4,65.9999989271165" />
+                  <mssgle:LineSegment
+                    End="12.9999994933606,65.9999989271165" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.9999994933606,65.9999989271165"
+                    Point2="16.9999994933606,65.9999989271165"
+                    Point3="16.9999994933606,69.9999989271165" />
+                  <mssgle:LineSegment
+                    End="16.9999994933606,124.499997854233" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-74.40298828125,39.9208984375,148.8059765625,11.658203125"
+              BoundingBox="-65.9029885345697,70.9999989271165,148.8059765625,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Sequence Container\Product Line Dimension.Paths[Changing Attribute Updates Output]"
-          TopLeft="362.25,149.5">
+          TopLeft="363.833333333333,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="177.75,99"
+              EndConnector="234.666665087144,149.999997317791"
               Start="0,0"
-              End="177.75,91.5">
+              End="234.666665087144,142.499997317791">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.8314960629921" />
+                    End="0,47.2578607186582" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.8314960629921"
-                    Point2="0,33.8314960629921"
-                    Point3="4,33.8314960629921" />
+                    Point1="0,47.2578607186582"
+                    Point2="0,51.2578607186582"
+                    Point3="4,51.2578607186582" />
                   <mssgle:LineSegment
-                    End="173.75,33.8314960629921" />
+                    End="230.666665087144,51.2578607186582" />
                   <mssgle:CubicBezierSegment
-                    Point1="173.75,33.8314960629921"
-                    Point2="177.75,33.8314960629921"
-                    Point3="177.75,37.8314960629921" />
+                    Point1="230.666665087144,51.2578607186582"
+                    Point2="234.666665087144,51.2578607186582"
+                    Point3="234.666665087144,55.2578607186582" />
                   <mssgle:LineSegment
-                    End="177.75,91.5" />
+                    End="234.666665087144,142.499997317791" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="10.34109375,38.8314960629921,157.0678125,11.6630859375"
+              BoundingBox="38.799426293572,56.2578607186582,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6288,7 +6477,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{DF6D8A3D-3729-4ACF-BFB4-5C0CFEE801A7}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{253EF4F5-9A17-4610-8B6E-7D8ED0FE596C}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[ProductLineDimension]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -6355,6 +6544,19 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Product Line Dimension\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Sequence Container\Supermarket Sales Fact">
     <LayoutInfo>
@@ -6365,23 +6567,35 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
           Id="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source"
           TopLeft="313,106" />
         <NodeLayout
-          Size="188,42"
-          Id="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination"
-          TopLeft="295,257" />
+          Size="172,42.6666666666667"
+          Id="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination"
+          TopLeft="387.999988436699,260.999992221594" />
         <EdgeLayout
           Id="Package\Sequence Container\Supermarket Sales Fact.Paths[OLE DB Source Output]"
-          TopLeft="388.5,148">
+          TopLeft="388,148">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,109"
+              EndConnector="85.9999884366993,112.999992221594"
               Start="0,0"
-              End="0,101.5">
+              End="85.9999884366993,105.499992221594">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,101.5" />
+                    End="0,52.499996110797" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.499996110797"
+                    Point2="0,56.499996110797"
+                    Point3="4,56.499996110797" />
+                  <mssgle:LineSegment
+                    End="81.9999884366993,56.499996110797" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.9999884366993,56.499996110797"
+                    Point2="85.9999884366993,56.499996110797"
+                    Point3="85.9999884366993,60.499996110797" />
+                  <mssgle:LineSegment
+                    End="85.9999884366993,105.499992221594" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6394,7 +6608,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source">
+    design-time-name="Package\Sequence Container\Supermarket Sales Fact\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6407,10 +6621,15 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Sequence Container\Supermarket Sales Fact\SQL Server Destination">
+    design-time-name="Package\Sequence Container\Supermarket Sales Fact\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

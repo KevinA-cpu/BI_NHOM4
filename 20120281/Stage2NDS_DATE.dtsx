@@ -7,15 +7,39 @@
   DTS:CreatorName="DESKTOP-KDVM3M2\Admin"
   DTS:DTSID="{2E5F0050-7A03-4992-8870-6F01AF69A59E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{7B9D5FD3-E9DF-4F39-B2E8-A27EDFB6D0D9}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{5692C758-D6ED-48CE-A0A5-95F5B58928DD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{88CE3F53-D149-4140-9929-2CE9D24655ED}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{88CE3F53-D149-4140-9929-2CE9D24655ED}DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{2DCF5995-642B-4F63-85BE-C2C90B2A118C}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_STAGE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{2DCF5995-642B-4F63-85BE-C2C90B2A118C}DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
       DTS:CreationName="OLEDB"
@@ -77,9 +101,8 @@
                       lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].Columns[Date]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Add SourceID.Inputs[Derived Column Input].Columns[Time]"
-                      cachedDataType="dbTime2"
+                      cachedDataType="dbTimeStamp2"
                       cachedName="Time"
-                      cachedScale="7"
                       lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].Columns[Time]" />
                   </inputColumns>
                   <externalMetadataColumns />
@@ -269,8 +292,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\DATE.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -306,14 +329,10 @@
                       cachedName="Time"
                       cachedScale="7"
                       externalMetadataColumnId="Package\Data Flow Task\DATE.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
-                      lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].Columns[Time]" />
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[Time]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\DATE.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\DATE.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
                       dataType="i4"
@@ -328,9 +347,13 @@
                       name="Year" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\DATE.Inputs[OLE DB Destination Input].ExternalColumns[Time]"
-                      dataType="dbTime2"
-                      name="Time"
-                      scale="7" />
+                      dataType="wstr"
+                      length="16"
+                      name="Time" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DATE.Inputs[OLE DB Destination Input].ExternalColumns[DateID]"
+                      dataType="i4"
+                      name="DateID" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -410,8 +433,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -440,13 +463,12 @@
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].Columns[Time]"
-                      dataType="dbTime2"
+                      dataType="dbTimeStamp2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].ExternalColumns[Time]"
                       lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].Columns[Time]"
                       name="Time"
-                      scale="7"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -502,13 +524,14 @@
                       name="Total" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].ExternalColumns[Date]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       name="Date" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].ExternalColumns[Time]"
-                      dataType="dbTime2"
-                      name="Time"
-                      scale="7" />
+                      dataType="wstr"
+                      length="16"
+                      name="Time" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Output].ExternalColumns[Payment]"
                       dataType="wstr"
@@ -556,15 +579,16 @@
                       name="ID" />
                     <outputColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Error Output].Columns[Date]"
-                      dataType="dbDate"
+                      dataType="wstr"
+                      length="10"
                       lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Error Output].Columns[Date]"
                       name="Date" />
                     <outputColumn
                       refId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Error Output].Columns[Time]"
-                      dataType="dbTime2"
+                      dataType="wstr"
+                      length="16"
                       lineageId="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage.Outputs[OLE DB Source Error Output].Columns[Time]"
-                      name="Time"
-                      scale="7" />
+                      name="Time" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -612,39 +636,43 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="275.2,41.6"
+          Size="276,42.6666666666667"
           Id="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage"
-          TopLeft="273.57142915379,64.999999943025" />
+          TopLeft="197.946432534491,43.5500009658407" />
         <NodeLayout
-          Size="143.2,41.6"
+          Size="143.333333333334,41.3333333333334"
           Id="Package\Data Flow Task\Add SourceID"
-          TopLeft="295.714286343784,143.764705756338" />
+          TopLeft="295.714286343784,166.514704671534" />
+        <NodeLayout
+          Size="129.333333333334,41.3333333333334"
+          Id="Package\Data Flow Task\DATE"
+          TopLeft="342.142857871189,287.529411512675" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="411.17142915379,106.599999943025">
+          TopLeft="335.946432534491,86.2166676325074">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-43.8571428100059,37.164705813313"
+              EndConnector="31.4345204759597,80.2980370390261"
               Start="0,0"
-              End="-43.8571428100059,29.664705813313">
+              End="31.4345204759597,72.7980370390261">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.5823529066565" />
+                    End="0,36.1490185195131" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.5823529066565"
-                    Point2="0,18.5823529066565"
-                    Point3="-4,18.5823529066565" />
+                    Point1="0,36.1490185195131"
+                    Point2="0,40.1490185195131"
+                    Point3="4,40.1490185195131" />
                   <mssgle:LineSegment
-                    End="-39.8571428100059,18.5823529066565" />
+                    End="27.4345204759597,40.1490185195131" />
                   <mssgle:CubicBezierSegment
-                    Point1="-39.8571428100059,18.5823529066565"
-                    Point2="-43.8571428100059,18.5823529066565"
-                    Point3="-43.8571428100059,22.5823529066565" />
+                    Point1="27.4345204759597,40.1490185195131"
+                    Point2="31.4345204759597,40.1490185195131"
+                    Point3="31.4345204759597,44.1490185195131" />
                   <mssgle:LineSegment
-                    End="-43.8571428100059,29.664705813313" />
+                    End="31.4345204759597,72.7980370390261" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -653,36 +681,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="104,41.6"
-          Id="Package\Data Flow Task\DATE"
-          TopLeft="342.142857871189,287.529411512675" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="367.314286343784,185.364705756338">
+          TopLeft="367.380953010451,207.848038004867">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="26.8285715274054,102.164705756337"
+              EndConnector="39.428571527405,79.6813735078081"
               Start="0,0"
-              End="26.8285715274054,94.6647057563372">
+              End="39.428571527405,72.1813735078081">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.0823528781686" />
+                    End="0,35.8406867539041" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,47.0823528781686"
-                    Point2="0,51.0823528781686"
-                    Point3="4,51.0823528781686" />
+                    Point1="0,35.8406867539041"
+                    Point2="0,39.8406867539041"
+                    Point3="4,39.8406867539041" />
                   <mssgle:LineSegment
-                    End="22.8285715274054,51.0823528781686" />
+                    End="35.428571527405,39.8406867539041" />
                   <mssgle:CubicBezierSegment
-                    Point1="22.8285715274054,51.0823528781686"
-                    Point2="26.8285715274054,51.0823528781686"
-                    Point3="26.8285715274054,55.0823528781686" />
+                    Point1="35.428571527405,39.8406867539041"
+                    Point2="39.428571527405,39.8406867539041"
+                    Point3="39.428571527405,43.8406867539041" />
                   <mssgle:LineSegment
-                    End="26.8285715274054,94.6647057563372" />
+                    End="39.428571527405,72.1813735078081" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

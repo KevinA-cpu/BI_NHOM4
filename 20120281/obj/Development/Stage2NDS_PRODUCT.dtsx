@@ -7,15 +7,39 @@
   DTS:CreatorName="DESKTOP-KDVM3M2\Admin"
   DTS:DTSID="{2506FEA6-7FBC-4876-BB23-C5176ACC18FF}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{7DA1F0ED-733D-4726-9393-CB47E0D1D9CC}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{870915F4-2492-42AE-B37E-7AFD01A03B1A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{68823CB4-25ED-4874-B395-645A464BA382}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{68823CB4-25ED-4874-B395-645A464BA382}DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{57EF545A-292D-412C-AFFE-367FA4F19972}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_STAGE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{57EF545A-292D-412C-AFFE-367FA4F19972}DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
       DTS:CreationName="OLEDB"
@@ -189,8 +213,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\insert data.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -352,8 +376,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Load data product in stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -573,8 +597,8 @@ where [refTable].[ProductID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Look at product in the data stream containing product_line_id in NDS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -673,8 +697,8 @@ where [refTable].[ProductID] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\update data.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -865,19 +889,23 @@ where [refTable].[ProductID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="204.8,41.6"
-          Id="Package\Data Flow Task\Load data product in stage"
-          TopLeft="273.57142915379,64.999999943025" />
+          Size="135.333333333334,41.3333333333334"
+          Id="Package\Data Flow Task\update data"
+          TopLeft="202.857143288972,328.058823241856" />
         <NodeLayout
-          Size="128.8,41.6"
+          Size="128.666666666667,41.3333333333334"
           Id="Package\Data Flow Task\insert data"
           TopLeft="659.28571568916,343.352940875508" />
         <NodeLayout
-          Size="404.8,41.6"
+          Size="204.666666666667,41.3333333333334"
+          Id="Package\Data Flow Task\Load data product in stage"
+          TopLeft="273.57142915379,64.999999943025" />
+        <NodeLayout
+          Size="404.666666666667,41.3333333333334"
           Id="Package\Data Flow Task\Look at product in the data stream containing product_line_id in NDS"
           TopLeft="272.142857722178,229.411764504794" />
         <NodeLayout
-          Size="143.2,41.6"
+          Size="143.333333333334,41.3333333333334"
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="295.714286343784,143.764705756338" />
         <EdgeLayout
@@ -912,6 +940,42 @@ where [refTable].[ProductID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="408.409524388845,271.011764504794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-137.952381099872,57.0470587370615"
+              Start="0,0"
+              End="-137.952381099872,49.5470587370615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.953580326487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.953580326487"
+                    Point2="0,22.953580326487"
+                    Point3="-4,22.953580326487" />
+                  <mssgle:LineSegment
+                    End="-133.952381099872,22.953580326487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.952381099872,22.953580326487"
+                    Point2="-137.952381099872,22.953580326487"
+                    Point3="-137.952381099872,26.953580326487" />
+                  <mssgle:LineSegment
+                    End="-137.952381099872,49.5470587370615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-117.167577268686,27.953580326487,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -984,46 +1048,6 @@ where [refTable].[ProductID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="135.2,41.6"
-          Id="Package\Data Flow Task\update data"
-          TopLeft="202.857143288972,328.058823241856" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="408.409524388845,271.011764504794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-137.952381099872,57.0470587370615"
-              Start="0,0"
-              End="-137.952381099872,49.5470587370615">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.953580326487" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.953580326487"
-                    Point2="0,22.953580326487"
-                    Point3="-4,22.953580326487" />
-                  <mssgle:LineSegment
-                    End="-133.952381099872,22.953580326487" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-133.952381099872,22.953580326487"
-                    Point2="-137.952381099872,22.953580326487"
-                    Point3="-137.952381099872,26.953580326487" />
-                  <mssgle:LineSegment
-                    End="-137.952381099872,49.5470587370615" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-117.167577268686,27.953580326487,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1054,7 +1078,7 @@ where [refTable].[ProductID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1064,7 +1088,7 @@ where [refTable].[ProductID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

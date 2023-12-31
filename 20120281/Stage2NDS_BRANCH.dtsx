@@ -7,15 +7,39 @@
   DTS:CreatorName="DESKTOP-KDVM3M2\Admin"
   DTS:DTSID="{8BF9CA4B-7392-4935-9341-4CAA46FA4219}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LastModifiedProductVersion="16.0.5396.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{91516562-688D-4947-9C6A-E95165010C9E}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{FA09B775-2855-4D61-B4EE-EB0F9A500E49}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1F489330-0230-4E72-813D-6F837A3E6A95}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_NDS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{1F489330-0230-4E72-813D-6F837A3E6A95}DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C04BE243-24D1-4713-B55B-19110CB9EADA}"
+      DTS:ObjectName="DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-GFADSU2\MSSQLSERVER01;Initial Catalog=BI_STAGE;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{C04BE243-24D1-4713-B55B-19110CB9EADA}DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
       DTS:CreationName="OLEDB"
@@ -131,11 +155,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Insert Data"
+              refId="Package\Data Flow Task\insert"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Data"
+              name="insert"
               usesDispositions="true"
               version="4">
               <properties>
@@ -155,7 +179,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update PRODUCT_LINE set Update_Date= getdate()</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -188,102 +212,102 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Insert Data.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  refId="Package\Data Flow Task\insert.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      externalMetadataColumnId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
                       lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdateDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      externalMetadataColumnId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
                       lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[Branch]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Branch"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
-                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[City]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="City"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      externalMetadataColumnId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].Columns[Branch]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Branch"
+                      externalMetadataColumnId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      name="CreatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
-                      dataType="dbTimeStamp"
-                      name="UpdateDate" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
                       dataType="wstr"
                       length="255"
                       name="Branch" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       dataType="wstr"
                       length="255"
                       name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Insert Data.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\insert.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Insert Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Insert Data.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\insert.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Insert Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Insert Data.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\insert.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -342,8 +366,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Load data branch in stage.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_STAGE]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_STAGE]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -545,8 +569,8 @@ where [refTable].[BRANCH] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -645,8 +669,8 @@ where [refTable].[BRANCH] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Update Data.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KDVM3M2.BI_NDS]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-GFADSU2\MSSQLSERVER01.BI_NDS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -777,7 +801,7 @@ where [refTable].[BRANCH] = ?</property>
               startId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup Error Output]"
-              endId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\insert.Inputs[OLE DB Destination Input]"
               name="Lookup Error Output"
               startId="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS.Outputs[Lookup Error Output]" />
             <path
@@ -820,39 +844,51 @@ where [refTable].[BRANCH] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="131,42"
-          Id="Package\Data Flow Task\Insert Data"
-          TopLeft="659.28571568916,343.352940875508" />
+          Size="201.333333333334,42"
+          Id="Package\Data Flow Task\Load data branch in stage"
+          TopLeft="273.57142915379,64.999999943025" />
+        <NodeLayout
+          Size="402.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS"
+          TopLeft="272.142857722178,229.411764504794" />
+        <NodeLayout
+          Size="105.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task\insert"
+          TopLeft="531.874976223335,351.487483239771" />
+        <NodeLayout
+          Size="142.666666666667,42"
+          Id="Package\Data Flow Task\Add SourceID"
+          TopLeft="350.089283913032,142.464705818327" />
         <NodeLayout
           Size="138,42"
           Id="Package\Data Flow Task\Update Data"
           TopLeft="141.428571729636,347.176470283921" />
-        <NodeLayout
-          Size="201,42"
-          Id="Package\Data Flow Task\Load data branch in stage"
-          TopLeft="273.57142915379,64.999999943025" />
-        <NodeLayout
-          Size="143,42"
-          Id="Package\Data Flow Task\Add SourceID"
-          TopLeft="295.714286343784,143.764705756338" />
-        <NodeLayout
-          Size="402,42"
-          Id="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS"
-          TopLeft="272.142857722178,229.411764504794" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="370.642857748787,106.599999943025">
+          TopLeft="374.238095820457,106.999999943025">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,37.164705813313"
+              EndConnector="47.1845214259087,35.4647058753018"
               Start="0,0"
-              End="0,29.664705813313">
+              End="47.1845214259087,27.9647058753018">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.664705813313" />
+                    End="0,13.7323529376509" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.7323529376509"
+                    Point2="0,17.7323529376509"
+                    Point3="4,17.7323529376509" />
+                  <mssgle:LineSegment
+                    End="43.1845214259087,17.7323529376509" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.1845214259087,17.7323529376509"
+                    Point2="47.1845214259087,17.7323529376509"
+                    Point3="47.1845214259087,21.7323529376509" />
+                  <mssgle:LineSegment
+                    End="47.1845214259087,27.9647058753018" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -863,102 +899,66 @@ where [refTable].[BRANCH] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="407.342857722178,271.011764504794">
+          TopLeft="407.698413277733,272.078431171461">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-197.114285992542,76.164705779127"
+              EndConnector="-197.269841548098,75.0980391124603"
               Start="0,0"
-              End="-197.114285992542,68.664705779127">
+              End="-197.269841548098,67.5980391124603">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.6472268492201" />
+                    End="0,26.2175487193937" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.6472268492201"
-                    Point2="0,30.6472268492201"
-                    Point3="-4,30.6472268492201" />
+                    Point1="0,26.2175487193937"
+                    Point2="0,30.2175487193937"
+                    Point3="-4,30.2175487193937" />
                   <mssgle:LineSegment
-                    End="-193.114285992542,30.6472268492201" />
+                    End="-193.269841548098,30.2175487193937" />
                   <mssgle:CubicBezierSegment
-                    Point1="-193.114285992542,30.6472268492201"
-                    Point2="-197.114285992542,30.6472268492201"
-                    Point3="-197.114285992542,34.6472268492201" />
+                    Point1="-193.269841548098,30.2175487193937"
+                    Point2="-197.269841548098,30.2175487193937"
+                    Point3="-197.269841548098,34.2175487193936" />
                   <mssgle:LineSegment
-                    End="-197.114285992542,68.664705779127" />
+                    End="-197.269841548098,67.5980391124603" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-146.748529715021,35.6472268492201,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Error Output]"
-          TopLeft="538.542857722178,271.011764504794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="186.342857966982,72.341176370714"
-              Start="0,0"
-              End="186.342857966982,64.841176370714">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.1087114444063" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.1087114444063"
-                    Point2="0,29.1087114444063"
-                    Point3="4,29.1087114444063" />
-                  <mssgle:LineSegment
-                    End="182.342857966982,29.1087114444063" />
-                  <mssgle:CubicBezierSegment
-                    Point1="182.342857966982,29.1087114444063"
-                    Point2="186.342857966982,29.1087114444063"
-                    Point3="186.342857966982,33.1087114444063" />
-                  <mssgle:LineSegment
-                    End="186.342857966982,64.841176370714" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="47.305042264741,34.1087114444063,91.7327734375,11.609375"
+              BoundingBox="-146.826307492799,35.2175487193936,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="367.314286343784,185.364705756338">
+          TopLeft="421.422617246365,184.464705818327">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="105.628571378394,44.047058748456"
+              EndConnector="52.0535738091459,44.9470586864672"
               Start="0,0"
-              End="105.628571378394,36.547058748456">
+              End="52.0535738091459,37.4470586864672">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.023529374228" />
+                    End="0,18.4735293432336" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.023529374228"
-                    Point2="0,22.023529374228"
-                    Point3="4,22.023529374228" />
+                    Point1="0,18.4735293432336"
+                    Point2="0,22.4735293432336"
+                    Point3="4,22.4735293432336" />
                   <mssgle:LineSegment
-                    End="101.628571378394,22.023529374228" />
+                    End="48.0535738091459,22.4735293432336" />
                   <mssgle:CubicBezierSegment
-                    Point1="101.628571378394,22.023529374228"
-                    Point2="105.628571378394,22.023529374228"
-                    Point3="105.628571378394,26.023529374228" />
+                    Point1="48.0535738091459,22.4735293432336"
+                    Point2="52.0535738091459,22.4735293432336"
+                    Point3="52.0535738091459,26.4735293432336" />
                   <mssgle:LineSegment
-                    End="105.628571378394,36.547058748456" />
+                    End="52.0535738091459,37.4470586864672" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -967,9 +967,53 @@ where [refTable].[BRANCH] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Error Output]"
+          TopLeft="539.253968833289,272.078431171461">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.2876740567125,79.4090520683101"
+              Start="0,0"
+              End="45.2876740567125,71.9090520683101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9521911356657" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9521911356657"
+                    Point2="0,31.9521911356657"
+                    Point3="4,31.9521911356657" />
+                  <mssgle:LineSegment
+                    End="41.2876740567125,31.9521911356657" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41.2876740567125,31.9521911356657"
+                    Point2="45.2876740567125,31.9521911356657"
+                    Point3="45.2876740567125,35.9521911356657" />
+                  <mssgle:LineSegment
+                    End="45.2876740567125,71.9090520683101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.2225496903938,36.9521911356657,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Load data branch in stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS">
     <Properties>
@@ -994,7 +1038,7 @@ where [refTable].[BRANCH] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Insert Data">
+    design-time-name="Package\Data Flow Task\insert">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1003,14 +1047,6 @@ where [refTable].[BRANCH] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Load data branch in stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
