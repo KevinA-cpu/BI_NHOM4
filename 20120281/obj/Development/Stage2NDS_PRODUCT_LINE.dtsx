@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{E82E6E3B-6D27-457F-8D44-A1DCACA6A97B}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{A734C9B1-BC42-4E3B-A193-D61E783385A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,6 +100,28 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">1</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      name="CurrentDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(GETDATE())</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -217,12 +239,6 @@
                       externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[ProductLine]"
                       lineageId="Package\Data Flow Task\Load data product_line in stage.Outputs[OLE DB Source Output].Columns[ProductLine]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      lineageId="Package\Data Flow Task\Load data product_line in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdateDate"
@@ -234,6 +250,12 @@
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -820,25 +842,25 @@ where [refTable].[ProductLineID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="227.2,41.6"
-          Id="Package\Data Flow Task\Load data product_line in stage"
-          TopLeft="273.57142915379,64.999999943025" />
-        <NodeLayout
-          Size="131.2,41.6"
+          Size="131,42"
           Id="Package\Data Flow Task\Insert Data"
           TopLeft="659.28571568916,343.352940875508" />
         <NodeLayout
-          Size="137.6,41.6"
+          Size="138,42"
           Id="Package\Data Flow Task\Update Data"
           TopLeft="141.428571729636,347.176470283921" />
         <NodeLayout
-          Size="441.6,41.6"
-          Id="Package\Data Flow Task\Look at product_line_id in the data stream containing product_line_id in NDS"
-          TopLeft="272.142857722178,229.411764504794" />
+          Size="227,42"
+          Id="Package\Data Flow Task\Load data product_line in stage"
+          TopLeft="273.57142915379,64.999999943025" />
         <NodeLayout
-          Size="143.2,41.6"
+          Size="143,42"
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="295.714286343784,143.764705756338" />
+        <NodeLayout
+          Size="442,42"
+          Id="Package\Data Flow Task\Look at product_line_id in the data stream containing product_line_id in NDS"
+          TopLeft="272.142857722178,229.411764504794" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="387.17142915379,106.599999943025">
@@ -941,7 +963,7 @@ where [refTable].[ProductLineID] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="33.9717089314076,34.0931662371752,91.7327734375,11.609375"
+              BoundingBox="33.9717089314075,34.0931662371752,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -982,5 +1004,18 @@ where [refTable].[ProductLineID] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Insert Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

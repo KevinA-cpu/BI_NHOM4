@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Excel2Source"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{28888110-63FE-41C6-A657-3B67D0000DA3}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{6600BABB-1043-4C23-974D-B585DD573CCC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

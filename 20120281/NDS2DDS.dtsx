@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="39"
-  DTS:VersionGUID="{4F009506-D957-445D-95BD-B2799E534597}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{4A2C8A50-39D7-449C-AB5E-1BE541B2DDFB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -85,7 +85,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET BRANCH (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -135,7 +135,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET PRODUCTLINE (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -160,7 +160,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get CET, LSET SUPERMARKET_SALES (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -669,10 +669,7 @@
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
-FROM BRANCH
-WHERE (CreatedDate &gt;= ? AND CreatedDate &lt; ?) 
-OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM BRANCH WHERE (CreatedDate &gt;= ? and CreatedDate &lt; ?) Or (UpdateDate &gt;= ? and UpdateDate &lt; ?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -689,11 +686,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter1:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter2:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter3:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};</property>
+                      name="ParameterMapping">"Parameter0:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter1:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter2:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter3:Input",{75443084-4A06-42F5-B269-25EE713DFF20};</property>
                   </properties>
                   <connections>
                     <connection
@@ -2430,10 +2427,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
-FROM PRODUCT
-WHERE (CreatedDate &gt;= ? AND CreatedDate &lt; ?) 
-OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM PRODUCT WHERE (CreatedDate &gt;= ? and CreatedDate &lt; ?) Or (UpdateDate &gt;= ? and UpdateDate &lt; ?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -2450,11 +2444,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter1:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter2:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter3:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};</property>
+                      name="ParameterMapping">"Parameter0:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter1:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter2:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter3:Input",{75443084-4A06-42F5-B269-25EE713DFF20};</property>
                   </properties>
                   <connections>
                     <connection
@@ -3601,10 +3595,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
-FROM PRODUCT_LINE 
-WHERE (CreatedDate &gt;= ? AND CreatedDate &lt; ?) 
-OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM PRODUCT_LINE WHERE (CreatedDate &gt;= ? and CreatedDate &lt; ?) Or (UpdateDate &gt;= ? and UpdateDate &lt; ?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -3621,11 +3612,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter1:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter2:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter3:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};</property>
+                      name="ParameterMapping">"Parameter0:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter1:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter2:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter3:Input",{75443084-4A06-42F5-B269-25EE713DFF20};</property>
                   </properties>
                   <connections>
                     <connection
@@ -4001,10 +3992,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.String"
                       description="The SQL command to be executed."
                       name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * 
-FROM SUPERMARKET_SALES
-WHERE (CreatedDate &gt;= ? AND CreatedDate &lt; ?) 
-OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM SUPERMARKET_SALES WHERE (CreatedDate &gt;= ? and CreatedDate &lt; ?) Or (UpdateDate &gt;= ? and UpdateDate &lt; ?)</property>
                     <property
                       dataType="System.String"
                       description="The variable that contains the SQL command to be executed."
@@ -4021,11 +4009,11 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
                       dataType="System.Int32"
                       description="Specifies the mode used to access the database."
                       name="AccessMode"
-                      typeConverter="AccessMode">0</property>
+                      typeConverter="AccessMode">2</property>
                     <property
                       dataType="System.String"
                       description="The mappings between the parameters in the SQL command and variables."
-                      name="ParameterMapping">"Parameter0:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter1:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter2:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter3:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};</property>
+                      name="ParameterMapping">"Parameter0:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter1:Input",{75443084-4A06-42F5-B269-25EE713DFF20};"Parameter2:Input",{64BFD312-6371-4524-A81A-5ED899E6FF8D};"Parameter3:Input",{75443084-4A06-42F5-B269-25EE713DFF20};</property>
                   </properties>
                   <connections>
                     <connection
@@ -4742,7 +4730,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET PRODUCT (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4776,7 +4764,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET PRODUCT_LINE (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -4793,7 +4781,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set CET SUPERMARKET_SALES (meta data)"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -5064,6 +5052,10 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
           Size="285,42"
           Id="Package\Set CET SUPERMARKET_SALES (meta data)"
           TopLeft="957.028572006367,60" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\set lset for all"
+          TopLeft="570,807" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="187.214285715806,102">
@@ -5336,10 +5328,6 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\set lset for all"
-          TopLeft="570,807" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="651.25,752.5">
@@ -5662,9 +5650,7 @@ OR (UpdateDate &gt;= ? AND UpdateDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout

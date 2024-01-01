@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{C7BA3862-A2BF-4DF8-99A5-25305809C002}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{958BA743-FEDE-46A4-AB51-649725B7B028}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -129,6 +129,28 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">ID</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      name="CurrentDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(GETDATE())</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -808,12 +830,6 @@ where [refTable].[InvoiceID] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="UpdateDate"
@@ -915,6 +931,12 @@ where [refTable].[InvoiceID] = ?</property>
                       cachedName="Branch"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Branch]"
                       lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1616,7 +1638,7 @@ where [refTable].[InvoiceID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>

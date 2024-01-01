@@ -1,4 +1,3 @@
-
 CREATE DATABASE BI_DDS;
 GO
 USE BI_DDS;
@@ -23,13 +22,6 @@ CREATE TABLE ProductLineDimension (
 	CreatedDate Datetime,
 	UpdateDate Datetime,
 );
-create trigger UPDATE_PRODUCT_LINE on ProductLineDimension after update  as 
-begin 
-	update ProductLineDimension
-	set UpdateDate = GETDATE()
-	where ProductLineID in (select distinct ProductLineID from inserted)
-end
-go
 
 -- Create Product Dimension table
 CREATE TABLE ProductDimension (
@@ -41,13 +33,6 @@ CREATE TABLE ProductDimension (
 	UpdateDate Datetime,
     ProductLineID NVARCHAR(255) FOREIGN KEY REFERENCES ProductLineDimension(ProductLineID)
 );
-create trigger UPDATE_PRODUCT on ProductDimension after update  as 
-begin 
-	update ProductDimension
-	set UpdateDate = GETDATE()
-	where ProductID in (select distinct ProductID from inserted)
-end
-go
 
 -- Create Branch Dimension table
 CREATE TABLE BranchDimension (
@@ -58,13 +43,6 @@ CREATE TABLE BranchDimension (
 	CreatedDate Datetime,
 	UpdateDate Datetime,
 );
-create trigger UPDATE_BRANCH on BranchDimension after update  as 
-begin 
-	update BranchDimension
-	set UpdateDate = GETDATE()
-	where Branch in (select distinct Branch from inserted)
-end
-go
 
 -- Create Fact Table
 CREATE TABLE SupermarketSalesFact (
@@ -87,11 +65,3 @@ CREATE TABLE SupermarketSalesFact (
 	UpdateDate Datetime,
 	SourceID INT
 );
-create trigger UPDATE_SUPERMARKET_SALES on SupermarketSalesFact after update  as 
-begin 
-	update SupermarketSalesFact
-	set UpdateDate = GETDATE()
-	where InvoiceID in (select distinct InvoiceID from inserted)
-end
-go
-

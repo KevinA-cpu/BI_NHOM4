@@ -11,15 +11,6 @@ CREATE TABLE SOURCE (
 );
 
 
-create trigger UPDATE_SOURCE on SOURCE after update  as 
-begin 
-	update SOURCE
-	set LSET = GETDATE()
-	where SourceName in (select distinct SourceName from inserted)
-end
-go
-
-
 INSERT [dbo].[SOURCE] ( [SourceName], [LSET]) VALUES (N'PRODUCT_LINE', GETDATE())
 INSERT [dbo].[SOURCE] ( [SourceName], [LSET]) VALUES (N'PRODUCT', GETDATE())
 INSERT [dbo].[SOURCE] ( [SourceName], [LSET]) VALUES (N'BRANCH', GETDATE())
@@ -50,6 +41,7 @@ CREATE TABLE PRODUCT_LINE (
 
 );
 
+
 -- Create Product table
 CREATE TABLE PRODUCT (
     ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -63,6 +55,7 @@ CREATE TABLE PRODUCT (
     --ProductLineID NVARCHAR(5) FOREIGN KEY REFERENCES ProductLineDimension(ProductLineSourceID)
 );
 
+
 -- Create Branch Dimension table
 CREATE TABLE BRANCH (
     ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -73,6 +66,7 @@ CREATE TABLE BRANCH (
 	UpdateDate Datetime,
 
 );
+
 
 -- Create Fact Table
 CREATE TABLE SUPERMARKET_SALES(
@@ -95,4 +89,5 @@ CREATE TABLE SUPERMARKET_SALES(
 	CreatedDate Datetime,
 	UpdateDate Datetime,
 );
+
 

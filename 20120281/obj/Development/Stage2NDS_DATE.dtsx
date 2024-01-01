@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{7B9D5FD3-E9DF-4F39-B2E8-A27EDFB6D0D9}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{D787ABF2-79D0-452C-81E9-EB0FF1A587AD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -612,13 +612,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="275.2,41.6"
+          Size="275,42"
           Id="Package\Data Flow Task\Load data SUPERMARKET_SALES in stage"
           TopLeft="273.57142915379,64.999999943025" />
         <NodeLayout
-          Size="143.2,41.6"
+          Size="143,42"
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="295.714286343784,143.764705756338" />
+        <NodeLayout
+          Size="104,42"
+          Id="Package\Data Flow Task\DATE"
+          TopLeft="342.142857871189,287.529411512675" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="411.17142915379,106.599999943025">
@@ -653,10 +657,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="104,41.6"
-          Id="Package\Data Flow Task\DATE"
-          TopLeft="342.142857871189,287.529411512675" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="367.314286343784,185.364705756338">

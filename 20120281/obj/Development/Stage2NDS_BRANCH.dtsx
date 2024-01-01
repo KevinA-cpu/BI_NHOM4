@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{91516562-688D-4947-9C6A-E95165010C9E}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{432DBF62-5E7C-4B9A-A627-C75948940C9E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,6 +100,28 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">3</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]"
+                      name="CurrentDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([GETDATE]())</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(GETDATE())</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -203,18 +225,6 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[CreatedDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="CreatedDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
-                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[CreatedDate]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="UpdateDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
-                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
@@ -234,6 +244,18 @@
                       cachedName="City"
                       externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Insert Data.Inputs[OLE DB Destination Input].ExternalColumns[CreatedDate]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -808,7 +830,7 @@ where [refTable].[BRANCH] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="150,42"
+          Size="151,42"
           Id="Package\Data Flow Task"
           TopLeft="60,60" />
       </GraphLayout>
