@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{432DBF62-5E7C-4B9A-A627-C75948940C9E}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{180FDE82-820B-4832-A7CE-6732B0ACA386}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -687,12 +687,6 @@ where [refTable].[BRANCH] = ?</property>
                       externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[UpdateDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="UpdateDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[City]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -706,6 +700,12 @@ where [refTable].[BRANCH] = ?</property>
                       cachedName="Branch"
                       externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\Data Flow Task\Load data branch in stage.Outputs[OLE DB Source Output].Columns[Branch]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -854,71 +854,13 @@ where [refTable].[BRANCH] = ?</property>
           Id="Package\Data Flow Task\Load data branch in stage"
           TopLeft="273.57142915379,64.999999943025" />
         <NodeLayout
-          Size="143,42"
-          Id="Package\Data Flow Task\Add SourceID"
-          TopLeft="295.714286343784,143.764705756338" />
-        <NodeLayout
           Size="402,42"
           Id="Package\Data Flow Task\Look at Branch in the data stream containing product_line_id in NDS"
           TopLeft="272.142857722178,229.411764504794" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="370.642857748787,106.599999943025">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,37.164705813313"
-              Start="0,0"
-              End="0,29.664705813313">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.664705813313" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="407.342857722178,271.011764504794">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-197.114285992542,76.164705779127"
-              Start="0,0"
-              End="-197.114285992542,68.664705779127">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.6472268492201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.6472268492201"
-                    Point2="0,30.6472268492201"
-                    Point3="-4,30.6472268492201" />
-                  <mssgle:LineSegment
-                    End="-193.114285992542,30.6472268492201" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-193.114285992542,30.6472268492201"
-                    Point2="-197.114285992542,30.6472268492201"
-                    Point3="-197.114285992542,34.6472268492201" />
-                  <mssgle:LineSegment
-                    End="-197.114285992542,68.664705779127" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-146.748529715021,35.6472268492201,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Data Flow Task\Add SourceID"
+          TopLeft="295.714286343784,143.764705756338" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Error Output]"
           TopLeft="538.542857722178,271.011764504794">
@@ -989,6 +931,64 @@ where [refTable].[BRANCH] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="370.642857748787,106.599999943025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.164705813313"
+              Start="0,0"
+              End="0,29.664705813313">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.664705813313" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="407.342857722178,271.011764504794">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-197.114285992542,76.164705779127"
+              Start="0,0"
+              End="-197.114285992542,68.664705779127">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.6472268492201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.6472268492201"
+                    Point2="0,30.6472268492201"
+                    Point3="-4,30.6472268492201" />
+                  <mssgle:LineSegment
+                    End="-193.114285992542,30.6472268492201" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-193.114285992542,30.6472268492201"
+                    Point2="-197.114285992542,30.6472268492201"
+                    Point3="-197.114285992542,34.6472268492201" />
+                  <mssgle:LineSegment
+                    End="-197.114285992542,68.664705779127" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-146.748529715021,35.6472268492201,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1016,6 +1016,14 @@ where [refTable].[BRANCH] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Load data branch in stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Insert Data">
     <Properties>
       <Property>
@@ -1025,14 +1033,6 @@ where [refTable].[BRANCH] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Load data branch in stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{958BA743-FEDE-46A4-AB51-649725B7B028}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{58B77024-B4E0-475B-9F5C-4810C802EEB7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1088,12 +1088,6 @@ where [refTable].[InvoiceID] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[UpdateDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="UpdateDate"
-                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\Load data supermarket_sales in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[Branch]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -1189,6 +1183,12 @@ where [refTable].[InvoiceID] = ?</property>
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\Update Data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1461,14 +1461,6 @@ where [refTable].[InvoiceID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="457,42"
-          Id="Package\Data Flow Task\Look at supermarket_sales in the data stream containing product_line_id in NDS"
-          TopLeft="402.85714371472,228.647058623111" />
-        <NodeLayout
-          Size="257,42"
-          Id="Package\Data Flow Task\Load data supermarket_sales in stage"
-          TopLeft="273.57142915379,64.999999943025" />
-        <NodeLayout
           Size="138,42"
           Id="Package\Data Flow Task\Update Data"
           TopLeft="141.428571729636,347.176470283921" />
@@ -1477,9 +1469,17 @@ where [refTable].[InvoiceID] = ?</property>
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="617.142858456592,316.588235016616" />
         <NodeLayout
+          Size="457,42"
+          Id="Package\Data Flow Task\Look at supermarket_sales in the data stream containing product_line_id in NDS"
+          TopLeft="402.85714371472,228.647058623111" />
+        <NodeLayout
           Size="143,42"
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="300.714286354428,150.647058691482" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\Data Flow Task\Load data supermarket_sales in stage"
+          TopLeft="273.57142915379,64.999999943025" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="401.97142915379,106.599999943025">

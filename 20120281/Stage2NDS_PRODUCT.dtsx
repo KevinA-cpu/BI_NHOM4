@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{DFD6E7C2-B036-47A4-9BDA-5CB6069654D1}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{463995C0-B112-4021-975B-F842820B2A3A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -709,12 +709,6 @@ where [refTable].[ProductID] = ?</property>
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].Columns[UpdateDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="UpdateDate"
-                      externalMetadataColumnId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\Load data product in stage.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].Columns[ProductLine]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -740,6 +734,12 @@ where [refTable].[ProductID] = ?</property>
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
                       lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].Columns[CurrentDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CurrentDate"
+                      externalMetadataColumnId="Package\Data Flow Task\update data.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Data Flow Task\Add SourceID.Outputs[Derived Column Output].Columns[CurrentDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -907,6 +907,40 @@ where [refTable].[ProductID] = ?</property>
           Id="Package\Data Flow Task\Add SourceID"
           TopLeft="295.714286343784,143.764705756338" />
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          TopLeft="367.314286343784,185.364705756338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="107.228571378394,44.047058748456"
+              Start="0,0"
+              End="107.228571378394,36.547058748456">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.023529374228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.023529374228"
+                    Point2="0,22.023529374228"
+                    Point3="4,22.023529374228" />
+                  <mssgle:LineSegment
+                    End="103.228571378394,22.023529374228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="103.228571378394,22.023529374228"
+                    Point2="107.228571378394,22.023529374228"
+                    Point3="107.228571378394,26.023529374228" />
+                  <mssgle:LineSegment
+                    End="107.228571378394,36.547058748456" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="375.97142915379,106.599999943025">
           <EdgeLayout.Curve>
@@ -1012,40 +1046,6 @@ where [refTable].[ProductID] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="367.314286343784,185.364705756338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="107.228571378394,44.047058748456"
-              Start="0,0"
-              End="107.228571378394,36.547058748456">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.023529374228" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.023529374228"
-                    Point2="0,22.023529374228"
-                    Point3="4,22.023529374228" />
-                  <mssgle:LineSegment
-                    End="103.228571378394,22.023529374228" />
-                  <mssgle:CubicBezierSegment
-                    Point1="103.228571378394,22.023529374228"
-                    Point2="107.228571378394,22.023529374228"
-                    Point3="107.228571378394,26.023529374228" />
-                  <mssgle:LineSegment
-                    End="107.228571378394,36.547058748456" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1054,19 +1054,6 @@ where [refTable].[ProductID] = ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\insert data">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1090,6 +1077,19 @@ where [refTable].[ProductID] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\insert data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
